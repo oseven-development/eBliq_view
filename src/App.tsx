@@ -38,8 +38,9 @@ export default class App extends React.Component<{}, IState> {
 
     const updateStream = () => {
       let lastFive = this.state.data.slice(
-        Math.max(this.state.data.length - 5, 1)
+        Math.max(this.state.data.length - 15, 1)
       )
+      // let lastFive = this.state.data
       let streamData: any = []
       let e: any
       for (e in lastFive) {
@@ -52,16 +53,19 @@ export default class App extends React.Component<{}, IState> {
   }
 
   render() {
+    console.log(this.state.streamData)
     return (
       <React.Fragment>
         <h1>test</h1>
         <XYPlot width={300} height={300}>
           <HorizontalGridLines />
           <LineSeries
+            // curve="curveBasis"
+            // animation
             getNull={(d: any) => d.y !== null}
             data={this.state.streamData}
           />
-          <XAxis />
+          <XAxis tickSize={1} />
           <YAxis />
         </XYPlot>
         {/* <div>{this.state.data}</div> */}
