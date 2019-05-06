@@ -1,11 +1,8 @@
 import React from 'react'
 
 import { Sales, IoT } from '../../views'
-import RestoreIcon from '@material-ui/icons/Restore'
-import MenuIcon from '@material-ui/icons/Menu'
 import DashboardIcon from '@material-ui/icons/Dashboard'
-import FolderIcon from '@material-ui/icons/Folder'
-import InboxIcon from '@material-ui/icons/Inbox'
+import { EngineIcon } from '../../components/icons'
 
 export interface IRoute {
   path: string
@@ -25,16 +22,16 @@ const routes: IRoute[] = [
     displayName: 'Sales Dashboard',
     position: 1,
     bottomNavigation: true,
-    icon: <InboxIcon />
+    icon: <DashboardIcon />
   },
   {
     path: '/iot',
     component: IoT,
     groups: '',
-    displayName: 'Produktionsdisplay',
+    displayName: 'IoT Dashboard',
     position: 2,
     bottomNavigation: true,
-    icon: <FolderIcon />
+    icon: <EngineIcon color={'inherit'} />
   }
 ]
 

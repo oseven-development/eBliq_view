@@ -16,6 +16,8 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "react-vis": "^1.11.7",
+    "rebass": "^3.1.0",
+    "styled-components": "^4.2.0",
     "typescript": "^3.4.5"
   },
   "scripts": {
@@ -38,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/rebass": "^3.0.3"
   }
 }

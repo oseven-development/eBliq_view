@@ -4,6 +4,8 @@ import BottomNavigation from '@material-ui/core/BottomNavigation'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
 import NavigationItems from '../../assets/routes'
 import { Link } from 'react-router-dom'
+import { lightTheme as theme } from '../../assets/theme/theme'
+
 const useStyles = makeStyles({
   root: {
     width: '100vw',
@@ -13,7 +15,15 @@ const useStyles = makeStyles({
     zIndex: 10000
   }
 })
-const useStyles2 = makeStyles({
+
+const desktopStyle = makeStyles({
+  root: {
+    width: '100vw',
+    // backgroundColor: theme.palette.primary.main,
+    boxShadow: '0px 1px 3px #ccc'
+  }
+})
+const elementStyle = makeStyles({
   root: {
     padding: '6px 2px 8px'
   },
@@ -21,26 +31,42 @@ const useStyles2 = makeStyles({
     fontSize: '0.8rem!important'
   }
 })
+const desktopElementStyle = makeStyles({
+  wrapper: {
+    flexDirection: 'row'
+  },
+  label: {
+    padding: '10px',
+    fontSize: '1rem!important'
+  },
+  selected: {
+    fontSize: '1rem!important'
+  }
+})
 
 interface IProps {
   setTitle: Function
+  width: number
 }
 
 const _BottomNavigation = (props: IProps) => {
+  const elementStyles = elementStyle()
+  const desktopElementStyles = desktopElementStyle()
+  const { setTitle, width } = props
   const classes = useStyles()
-  const cl = useStyles2()
-  const { setTitle } = props
+  const desktopClasses = desktopStyle()
   const [value, setValue] = React.useState('Inbox')
+  console.log(width)
 
   async function handleChange(event: any, newValue: any) {
-    setTitle(newValue)
     await setValue(newValue)
+    setTitle(newValue)
   }
   return (
     <BottomNavigation
       value={value}
       onChange={handleChange}
-      className={classes.root}
+      className={width > 800 ? desktopClasses.root : classes.root}
     >
       {NavigationItems.map(e => {
         if (e.displayName) {
@@ -54,7 +80,8 @@ const _BottomNavigation = (props: IProps) => {
               icon={e.icon}
               key={e.path}
               style={{ minWidth: 'auto' }}
-              classes={cl}
+              classes={width > 800 ? desktopElementStyles : elementStyles}
+              showLabel={true}
             />
           )
         }

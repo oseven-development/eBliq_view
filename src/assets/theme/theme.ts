@@ -10,20 +10,19 @@ const defaultTheme = {
       'Roboto'
     ].join(','),
     h1: {
-      fontSize: '2.25rem',
+      fontSize: '1.5rem',
       fontWeight: 600
     },
     h3: {
-      fontSize: '1.2rem'
+      fontSize: '2rem',
+      fontWeight: 600
     },
-    h6: {
-      fontSize: '1rem'
+    h2: {
+      fontSize: '1.4rem',
+      fontWeight: 400
     },
     subtitle1: {
-      fontSize: '0.7rem'
-    },
-    subtitle2: {
-      fontSize: '0.66rem'
+      fontSize: '1rem'
     }
   }
 }
@@ -35,7 +34,7 @@ export const lightTheme = createMuiTheme({
       main: '#0158c8'
     },
     secondary: {
-      main: '#ef6c00'
+      main: '#0AB464'
     }
   }
 })

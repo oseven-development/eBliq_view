@@ -23,7 +23,7 @@ const header = (props: any) => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
+          <Typography variant="h1" color="inherit" className={classes.grow}>
             {title}
           </Typography>
         </Toolbar>

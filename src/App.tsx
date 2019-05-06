@@ -9,7 +9,8 @@ import {
 import { MuiThemeProvider } from '@material-ui/core'
 import { lightTheme as theme } from './assets/theme/theme'
 import { Navigation, Header } from './components'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import routes from './assets/routes'
 
 const url = 'http://localhost:3555/get'
 
@@ -23,7 +24,8 @@ export default class App extends React.Component<{}, IState> {
   constructor(props: any) {
     super(props)
 
-    this.state = { data: [], streamData: [], title: 'Sales' }
+    this.state = { data: [], streamData: [], title: 'Sales Dashboard' }
+    this.setTitle = this.setTitle.bind(this)
 
     // connect to the realtime database stream
     let eventSource = new EventSource(url)
@@ -57,8 +59,8 @@ export default class App extends React.Component<{}, IState> {
     }
   }
 
-  setTitle(name: string) {
-    this.setState({ title: name })
+  setTitle(title: string) {
+    this.setState({ title })
   }
 
   render() {
@@ -66,10 +68,9 @@ export default class App extends React.Component<{}, IState> {
     return (
       <MuiThemeProvider theme={theme}>
         <Router>
-          <Header />
-          <Navigation setTitle={this.setTitle} />
+          <Header title={this.state.title} />
+          <Navigation setTitle={this.setTitle} width={window.innerWidth} />
           <React.Fragment>
-            <h1>test</h1>
             <XYPlot width={600} height={300} yDomain={[-150, 150]}>
               <HorizontalGridLines />
               <LineSeries
@@ -81,6 +82,10 @@ export default class App extends React.Component<{}, IState> {
               <XAxis tickTotal={10} />
               <YAxis />
             </XYPlot>
+
+            {routes.map((e: any) => (
+              <Route path={e.path} component={e.component} />
+            ))}
 
             {/* <div>{this.state.data}</div> */}
           </React.Fragment>
