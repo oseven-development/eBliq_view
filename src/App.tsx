@@ -71,18 +71,6 @@ export default class App extends React.Component<{}, IState> {
           <Header title={this.state.title} />
           <Navigation setTitle={this.setTitle} width={window.innerWidth} />
           <React.Fragment>
-            <XYPlot width={600} height={300} yDomain={[-150, 150]}>
-              <HorizontalGridLines />
-              <LineSeries
-                curve="curveBasis"
-                // animation
-                getNull={(d: any) => d.y !== null}
-                data={this.state.streamData}
-              />
-              <XAxis tickTotal={10} />
-              <YAxis />
-            </XYPlot>
-
             {routes.map((e: any) => (
               <Route path={e.path} component={e.component} />
             ))}
