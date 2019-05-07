@@ -1,5 +1,6 @@
 import React from 'react'
 import LineChart from './types/lineChart'
+import VerticalBarChart from './types/verticalBarChart'
 
 interface IChartData {
   x: number
@@ -7,7 +8,7 @@ interface IChartData {
 }
 
 interface ICharts {
-  type: 'line' | 'bar'
+  type: 'line' | 'verticalBar'
   title: string
   value: IChartData[] | IChartData[][]
   xAxis?: number[]
@@ -15,17 +16,26 @@ interface ICharts {
   curve?: true
   xTickTotal?: number
   yTickTotal?: number
+  stacked?: true
 }
 
 const _Chart: React.FC<ICharts> = (props: ICharts) => {
-  const { type, title, value, xAxis, yAxis } = props
+  const { type, title, value, xAxis, yAxis, stacked } = props
   switch (type) {
     case 'line':
       return (
         <LineChart title={title} value={value} xAxis={xAxis} yAxis={yAxis} />
       )
-    case 'bar':
-      return <div />
+    case 'verticalBar':
+      return (
+        <VerticalBarChart
+          title={title}
+          value={value}
+          xAxis={xAxis}
+          yAxis={yAxis}
+          stacked={stacked}
+        />
+      )
     default:
       return <div />
   }

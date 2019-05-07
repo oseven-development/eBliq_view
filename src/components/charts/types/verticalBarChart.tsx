@@ -4,21 +4,24 @@ import {
   XAxis,
   YAxis,
   HorizontalGridLines,
-  LineSeries,
-  Hint
+  VerticalBarSeries
 } from 'react-vis'
 import { Flex, Box } from 'rebass'
 import Typography from '@material-ui/core/Typography'
 import { lightTheme as theme } from '../../../assets/theme/theme'
 
-const LineChart = (props: any) => {
-  const { title, value, xAxis, yAxis, curve, xTickTotal, yTickTotal } = props
-  const [hint, setHint] = React.useState(false)
-  const changeHint = (value: any) => {
-    if (hint !== value) {
-      setHint(value)
-    }
-  }
+const VerticalBarChart = (props: any) => {
+  const {
+    title,
+    value,
+    xAxis,
+    yAxis,
+    curve,
+    xTickTotal,
+    yTickTotal,
+    stacked
+  } = props
+  console.log()
   return (
     <React.Fragment>
       <Box>
@@ -29,36 +32,29 @@ const LineChart = (props: any) => {
       <Box>
         <XYPlot width={600} height={300} yDomain={yAxis ? yAxis : ''}>
           <HorizontalGridLines />
-          {Array.isArray(value[0]) ? (
+          {Array.isArray(value) ? (
             value.map((element: any) => {
               return (
-                <LineSeries
-                  onNearestXY={(datapoint: any, event: any) => {
-                    changeHint(datapoint)
-                  }}
+                <VerticalBarSeries
+                  cluster={stacked ? 'stack 1' : null}
                   curve={curve ? 'curveBasis' : null}
                   animation
                   getNull={(d: any) => d.y !== null}
                   data={element}
                   strokeWidth="3px"
-                  key={Math.random()}
                 />
               )
             })
           ) : (
-            <LineSeries
-              onNearestX={(datapoint: any, event: any) => {
-                changeHint(datapoint)
-              }}
+            <VerticalBarSeries
               curve={curve ? 'curveBasis' : null}
               animation
               getNull={(d: any) => d.y !== null}
-              data={value}
+              data={value[1]}
               stroke={theme.palette.primary.main}
               strokeWidth="3px"
             />
           )}
-          {hint !== false ? <Hint value={hint} /> : <div />}
 
           <XAxis tickTotal={xTickTotal ? xTickTotal : null} />
           <YAxis tickTotal={yTickTotal ? yTickTotal : null} />
@@ -67,4 +63,5 @@ const LineChart = (props: any) => {
     </React.Fragment>
   )
 }
-export default LineChart
+
+export default VerticalBarChart
