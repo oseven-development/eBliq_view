@@ -12,9 +12,9 @@ const styles = {
   }
 }
 const _Card = (props: any) => {
-  const { classes, content, title } = props
+  const { classes, content, title, my, mx } = props
   return (
-    <Box>
+    <Box mx={mx ? mx : 10} my={my ? my : 20}>
       <Card
         className={classes.card}
         style={{

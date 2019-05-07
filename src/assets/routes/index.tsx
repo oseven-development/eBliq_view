@@ -16,7 +16,7 @@ export interface IRoute {
 
 const routes: IRoute[] = [
   {
-    path: '/',
+    path: '/sales',
     component: Sales,
     groups: '',
     displayName: 'Sales Dashboard',

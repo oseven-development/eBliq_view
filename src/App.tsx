@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  XYPlot,
-  XAxis,
-  YAxis,
-  HorizontalGridLines,
-  LineSeries
-} from 'react-vis'
+
 import { MuiThemeProvider } from '@material-ui/core'
 import { lightTheme as theme } from './assets/theme/theme'
 import { Navigation, Header } from './components'
