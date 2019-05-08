@@ -5,6 +5,7 @@ import Content from './content'
 import Kpi from './kpi'
 import _Chart from './charts'
 import NotificationBar from './notificationBar'
+import MachineVis from './visualization/svgPlans/machineVis'
 
 export {
   header as Header,
@@ -13,5 +14,6 @@ export {
   Content,
   Kpi,
   _Chart as Chart,
-  NotificationBar
+  NotificationBar,
+  MachineVis
 }

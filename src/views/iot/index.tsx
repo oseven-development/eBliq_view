@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Content, Kpi, Chart } from '../../components'
+import { Card, Content, Kpi, Chart, MachineVis } from '../../components'
 import data from '../../demo/data'
 
 export default class iot extends Component {
@@ -20,6 +20,7 @@ export default class iot extends Component {
             <Chart type={'gauge'} title={'Auslastung Machine 2'} value={data} />
           }
         />
+        <Card content={<MachineVis title={'Machine 7'} />} />
       </Content>
     )
   }
