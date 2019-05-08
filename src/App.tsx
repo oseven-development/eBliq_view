@@ -4,8 +4,6 @@ import { MuiThemeProvider } from '@material-ui/core'
 import { lightTheme as theme } from './assets/theme/theme'
 import { Navigation, Header } from './components'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
-import breakpoints from './assets/theme/breakpoints'
 import routes from './assets/routes'
 
 const url = 'http://localhost:3555/get'
@@ -63,19 +61,15 @@ export default class App extends React.Component<any, IState> {
     // console.log(this.state.streamData)
     return (
       <MuiThemeProvider theme={theme}>
-        <ThemeProvider theme={breakpoints}>
-          <Router>
-            <Header title={this.state.title} notifications={1} />
-            <Navigation setTitle={this.setTitle} width={window.innerWidth} />
-            <React.Fragment>
-              {routes.map((e: any) => (
-                <Route path={e.path} component={e.component} />
-              ))}
-
-              {/* <div>{this.state.data}</div> */}
-            </React.Fragment>
-          </Router>
-        </ThemeProvider>
+        <Router>
+          <Header title={this.state.title} notifications={1} />
+          <Navigation setTitle={this.setTitle} width={window.innerWidth} />
+          <React.Fragment>
+            {routes.map((e: any) => (
+              <Route path={e.path} component={e.component} />
+            ))}
+          </React.Fragment>
+        </Router>
       </MuiThemeProvider>
     )
   }
