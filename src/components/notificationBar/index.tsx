@@ -36,35 +36,34 @@ const NotificationBar = (props: any) => {
 
   return (
     <React.Fragment>
-      <div>
-        <Tooltip
-          PopperProps={{
-            disablePortal: true
+      <Tooltip
+        PopperProps={{
+          disablePortal: true
+        }}
+        onClose={() => {
+          setTooltip(false)
+        }}
+        open={tooltip}
+        disableFocusListener
+        disableHoverListener
+        title={<TPcust notifications={notifications} />}
+        style={{ marginLeft: 30 }}
+      >
+        <IconButton
+          color="inherit"
+          onClick={() => {
+            setTooltip(!tooltip)
           }}
-          onClose={() => {
-            setTooltip(false)
-          }}
-          open={tooltip}
-          disableFocusListener
-          disableHoverListener
-          title={<TPcust notifications={notifications} />}
         >
-          <IconButton
-            color="inherit"
-            onClick={() => {
-              setTooltip(!tooltip)
-            }}
-          >
-            {notifications ? (
-              <Badge badgeContent={notifications.length} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            ) : (
+          {notifications ? (
+            <Badge badgeContent={notifications.length} color="secondary">
               <NotificationsIcon />
-            )}
-          </IconButton>
-        </Tooltip>
-      </div>
+            </Badge>
+          ) : (
+            <NotificationsIcon />
+          )}
+        </IconButton>
+      </Tooltip>
     </React.Fragment>
   )
 }
