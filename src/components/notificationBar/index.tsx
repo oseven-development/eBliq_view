@@ -47,7 +47,7 @@ const NotificationBar = (props: any) => {
           open={tooltip}
           disableFocusListener
           disableHoverListener
-          title={<TPcust />}
+          title={<TPcust notifications={notifications} />}
         >
           <IconButton
             color="inherit"

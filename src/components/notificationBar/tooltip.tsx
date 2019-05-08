@@ -7,7 +7,6 @@ import InfoIcon from '@material-ui/icons/Info'
 
 export const ToolTip = (props: any) => {
   const { notifcations } = props
-  console.log(props)
   return (
     <React.Fragment>
       <Flex
