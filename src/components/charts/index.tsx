@@ -1,6 +1,7 @@
 import React from 'react'
 import LineChart from './types/lineChart'
 import VerticalBarChart from './types/verticalBarChart'
+import GaugeChart from './types/gaugeChart'
 
 interface IChartData {
   x: number
@@ -8,7 +9,7 @@ interface IChartData {
 }
 
 interface ICharts {
-  type: 'line' | 'verticalBar'
+  type: 'line' | 'verticalBar' | 'gauge'
   title: string
   value: IChartData[] | IChartData[][]
   xAxis?: number[]
@@ -36,6 +37,8 @@ const _Chart: React.FC<ICharts> = (props: ICharts) => {
           stacked={stacked}
         />
       )
+    case 'gauge':
+      return <GaugeChart valeue={value} title={title} />
     default:
       return <div />
   }

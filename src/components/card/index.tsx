@@ -12,7 +12,8 @@ const styles = {
   }
 }
 const _Card = (props: any) => {
-  const { classes, content, title, my, mx } = props
+  const { classes, content, title, my, mx, alignItems } = props
+
   return (
     <Box mx={mx ? mx : 10} my={my ? my : 20}>
       <Card
@@ -21,7 +22,7 @@ const _Card = (props: any) => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          alignItems: 'flex-start',
+          alignItems: alignItems ? alignItems : 'flex-start',
           padding: 15
         }}
       >

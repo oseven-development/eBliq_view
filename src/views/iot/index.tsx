@@ -14,6 +14,12 @@ export default class iot extends Component {
             <Chart type={'line'} title={'Stream Machine 2'} value={data} />
           }
         />
+        <Card
+          alignItems="center"
+          content={
+            <Chart type={'gauge'} title={'Auslastung Machine 2'} value={data} />
+          }
+        />
       </Content>
     )
   }
