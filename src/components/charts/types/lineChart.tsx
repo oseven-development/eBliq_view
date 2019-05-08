@@ -27,7 +27,11 @@ const LineChart = (props: any) => {
         </Typography>
       </Box>
       <Box>
-        <XYPlot width={600} height={300} yDomain={yAxis ? yAxis : ''}>
+        <XYPlot
+          width={window.innerWidth < 768 ? window.innerWidth - 50 : 600}
+          height={300}
+          yDomain={yAxis ? yAxis : ''}
+        >
           <HorizontalGridLines />
           {Array.isArray(value[0]) ? (
             value.map((element: any) => {

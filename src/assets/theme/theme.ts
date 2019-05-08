@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles'
-
+import { color } from './color'
 const defaultTheme = {
   typography: {
     useNextVariants: true,
@@ -23,6 +23,12 @@ const defaultTheme = {
     },
     subtitle1: {
       fontSize: '1rem'
+    },
+    h4: {
+      fontSize: '1rem'
+    },
+    h6: {
+      fontSize: '0.8rem'
     }
   }
 }
@@ -31,11 +37,14 @@ export const lightTheme = createMuiTheme({
   ...defaultTheme,
   palette: {
     primary: {
-      main: '#0158c8'
+      main: color.primary
     },
     secondary: {
-      main: '#0AB464'
+      main: color.secondary
     }
+    // background: {
+    //   paper: color.backgroundPaper
+    // }
   }
 })
 // console.log(lightTheme)

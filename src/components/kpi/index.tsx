@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
 import ArrowDownWardIcon from '@material-ui/icons/ArrowDownward'
 import { Flex, Box } from 'rebass'
+import { color } from '../../assets/theme/color'
 
 const Kpi = (props: any) => {
   const { title, value, growth, displayGrowth } = props
@@ -25,7 +26,7 @@ const Kpi = (props: any) => {
       ) : (
         <Box>
           <Typography variant="subtitle1" color="inherit">
-            <Flex justifyContent={'center'} style={{ color: '#0AB464' }}>
+            <Flex justifyContent={'center'} style={{ color: color.success }}>
               {growth > 0 ? (
                 <React.Fragment>
                   <Box>
