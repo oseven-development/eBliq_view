@@ -6,6 +6,14 @@ import { lightTheme as theme } from '../../../assets/theme/theme'
 const MachineVis = (props: any) => {
   const { data, title } = props
 
+  const setColor = (machine: any) => {
+    if (machine < 50) {
+      return 'green'
+    } else {
+      return 'red'
+    }
+  }
+
   return (
     <React.Fragment>
       <Box>
@@ -22,10 +30,34 @@ const MachineVis = (props: any) => {
         <rect x="438.3" y="171.1" fill={'black'} width="13.4" height="100" />
         <rect x="514.7" y="171.1" fill={'black'} width="13.4" height="100" />
         <rect x="228.1" y="51.1" fill={'black'} width="150" height="60" />
-        <rect x="228.1" y="131.1" fill={'red'} width="29.7" height="60" />
-        <rect x="348" y="131.1" fill={'red'} width="29.7" height="60" />
-        <rect x="276.6" y="131.1" fill={'red'} width="52.6" height="60" />
-        <rect x="228.2" y="239" fill={'red'} width="150" height="19.6" />
+        <rect
+          x="228.1"
+          y="131.1"
+          fill={setColor(data.machine1)}
+          width="29.7"
+          height="60"
+        />
+        <rect
+          x="348"
+          y="131.1"
+          fill={setColor(data.machine2)}
+          width="29.7"
+          height="60"
+        />
+        <rect
+          x="276.6"
+          y="131.1"
+          fill={setColor(data.machine3)}
+          width="52.6"
+          height="60"
+        />
+        <rect
+          x="228.2"
+          y="239"
+          fill={setColor(data.machine4)}
+          width="150"
+          height="19.6"
+        />
       </svg>
     </React.Fragment>
   )

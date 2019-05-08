@@ -13,7 +13,7 @@ const styles = {
   }
 }
 const _Card = (props: any) => {
-  const { classes, content, title, my, mx, alignItems } = props
+  const { classes, content, title, my, mx, alignItems, width } = props
   console.log(props)
   return (
     <Box
@@ -28,7 +28,8 @@ const _Card = (props: any) => {
           flexDirection: 'column',
           justifyContent: 'space-between',
           alignItems: alignItems ? alignItems : 'flex-start',
-          padding: 15
+          padding: 15,
+          width
         }}
       >
         {content}
