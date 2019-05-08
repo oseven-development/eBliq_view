@@ -6,7 +6,8 @@ import { Typography } from '@material-ui/core'
 import InfoIcon from '@material-ui/icons/Info'
 
 export const ToolTip = (props: any) => {
-  const { notifcations } = props
+  const { notifications } = props
+
   return (
     <React.Fragment>
       <Flex
@@ -15,7 +16,7 @@ export const ToolTip = (props: any) => {
         alignItems={'flex-start'}
         style={{ minWidth: 340 }}
       >
-        {notifcations.map((note: any) => {
+        {notifications.map((note: any) => {
           return (
             <Box mx={'10px'} my={'5px'}>
               <Flex
