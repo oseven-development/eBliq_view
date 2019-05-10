@@ -8,7 +8,7 @@ const Content = (props: any) => {
     <Flex
       flexWrap="wrap"
       style={{
-        margin: window.innerWidth < 768 ? '0px 0px 55px 0px' : '40px auto',
+        margin: window.innerWidth < 768 ? '0px 0px 55px 0px' : '05px auto',
         maxWidth: 1000
       }}
     >

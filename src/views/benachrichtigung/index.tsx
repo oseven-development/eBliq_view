@@ -20,7 +20,7 @@ const machine = {
   machine3: 21,
   machine4: 11
 }
-export default class iot extends Component<any, any> {
+export default class Benachrichtigung extends Component<any, any> {
   render() {
     return (
       <React.Fragment>

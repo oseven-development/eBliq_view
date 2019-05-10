@@ -2,9 +2,15 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
-import NavigationItems from '../../assets/routes'
+import NavigationItems from '../../../assets/routes'
+import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
-import { lightTheme as theme } from '../../assets/theme/theme'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import { Drawer } from '../../index'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles({
   root: {
@@ -50,26 +56,29 @@ interface IProps {
 }
 
 const _BottomNavigation = (props: IProps) => {
+  const { setTitle, width } = props
   const elementStyles = elementStyle()
   const desktopElementStyles = desktopElementStyle()
-  const { setTitle, width } = props
   const classes = useStyles()
   const desktopClasses = desktopStyle()
   const [value, setValue] = React.useState('Inbox')
-  console.log(width)
-
-  async function handleChange(event: any, newValue: any) {
-    await setValue(newValue)
-    setTitle(newValue)
+  const [toggle, setToggle] = React.useState(false)
+  async function handleChange(newValue: any) {
+    if (newValue === 'Mehr') {
+    } else {
+      await setValue(newValue)
+      setTitle(newValue)
+    }
   }
+
   return (
     <BottomNavigation
       value={value}
       onChange={handleChange}
       className={width > 800 ? desktopClasses.root : classes.root}
     >
-      {NavigationItems.map(e => {
-        if (e.displayName) {
+      {NavigationItems.map((e: any) => {
+        if (e.displayName && e.position && e.position < 3) {
           return (
             <BottomNavigationAction
               // @ts-ignore: Wait fix from material-UI
@@ -86,6 +95,45 @@ const _BottomNavigation = (props: IProps) => {
           )
         }
       })}
+      <BottomNavigationAction
+        onClick={() => {
+          setToggle(!toggle)
+        }}
+        label={'Mehr'}
+        value={'Mehr'}
+        icon={<MenuIcon />}
+        classes={width > 800 ? desktopElementStyles : elementStyles}
+        showLabel={true}
+      />
+      <Drawer
+        setToggle={() => {
+          setToggle(!toggle)
+        }}
+        openState={toggle}
+        Component={
+          <List>
+            {NavigationItems.map((e: any) => {
+              if (e.displayName && e.position && e.position >= 3) {
+                return (
+                  <Link
+                    to={e.path}
+                    onClick={() => {
+                      handleChange(e.diplayName)
+                    }}
+                  >
+                    <ListItem>
+                      <ListItemIcon>{e.icon}</ListItemIcon>
+                      <ListItemText primary={e.displayName} />{' '}
+                    </ListItem>
+                  </Link>
+                )
+              }
+            })}
+          </List>
+        }
+        anchor={'bottom'}
+        style={{ marginBottom: 55 }}
+      />
     </BottomNavigation>
   )
 }

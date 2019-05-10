@@ -2,43 +2,41 @@ import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import Avatar from '@material-ui/core/Avatar'
 import { Flex, Box } from 'rebass'
-import { Typography } from '@material-ui/core'
+import { Typography, Button } from '@material-ui/core'
 import InfoIcon from '@material-ui/icons/Info'
+import { List } from '../index'
+import { Link } from 'react-router-dom'
+import Divider from '@material-ui/core/Divider'
 
 export const ToolTip = (props: any) => {
   const { notifications } = props
-
   return (
     <React.Fragment>
       <Flex
         flexDirection={'column'}
         justifyContent={'center'}
         alignItems={'flex-start'}
-        style={{ minWidth: 340 }}
+        // style={{ minWidth: 340 }}
       >
-        {notifications.map((note: any) => {
-          return (
-            <Box mx={'10px'} my={'5px'}>
-              <Flex
-                flexDirection={'row'}
-                justifyContent={'center'}
-                alignItems={'center'}
-              >
-                <Box mr={'7px'}>
-                  {note.icon ? note.icon : <InfoIcon color="secondary" />}
-                </Box>
-                <Box>
-                  <Typography variant="h4" color="inherit">
-                    {note.primary}
-                  </Typography>
-                  <Typography variant="h6" color="inherit">
-                    {note.secondary}
-                  </Typography>
-                </Box>
-              </Flex>
-            </Box>
-          )
-        })}
+        <Box mx={'10px'}>
+          <List
+            data={notifications}
+            color={{ primary: 'inherit', secondary: 'inherit' }}
+          />
+        </Box>
+        <Box width={1}>
+          <Divider style={{ background: '#bbb' }} />
+        </Box>
+        <Box mx={'10px'} my={'5px'} alignSelf="center">
+          <Button
+            color="secondary"
+            // @ts-ignore: Wait fix from material-UI
+            component={Link}
+            to={'/sales'}
+          >
+            Show More
+          </Button>
+        </Box>
       </Flex>
     </React.Fragment>
   )
