@@ -5,7 +5,7 @@ import {
   Kpi,
   Chart,
   MachineVis,
-  SiteNavigation,
+  SearchField,
   SiteBox
 } from '../../components'
 import data from '../../demo/data'
@@ -15,9 +15,7 @@ export default class Search extends Component<any, any> {
     return (
       <SiteBox>
         <Content>
-          <Card
-            content={<Kpi title={'Tagesumsatz'} value={'4000€'} growth={16} />}
-          />
+          <SearchField />
         </Content>
       </SiteBox>
     )

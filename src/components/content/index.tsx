@@ -9,8 +9,11 @@ const Content = (props: any) => {
       flexWrap="wrap"
       style={{
         margin: 'auto',
-        maxWidth: 1000
+        maxWidth: 1000,
+        height: `calc(100vh - 240px)`
       }}
+      justifyContent="center"
+      alignItems="center"
     >
       {children}
     </Flex>

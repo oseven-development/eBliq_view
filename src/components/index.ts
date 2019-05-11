@@ -10,6 +10,7 @@ import NotificationBar from './notificationBar'
 import MachineVis from './visualization/svgPlans/machineVis'
 import List from './lists/standardList'
 import Drawer from './drawer/index'
+import SearchField from './fields/searchField'
 
 export {
   header as Header,
@@ -23,5 +24,6 @@ export {
   List,
   SiteNavigation,
   Drawer,
-  SiteBox
+  SiteBox,
+  SearchField
 }
