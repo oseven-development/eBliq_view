@@ -2,18 +2,16 @@ import React, { Children } from 'react'
 
 import { Flex } from 'rebass'
 
-const Content = (props: any) => {
+const SiteBox = (props: any) => {
   const { children } = props
   return (
-    <Flex
-      flexWrap="wrap"
+    <div
       style={{
-        margin: 'auto',
-        maxWidth: 1000
+        margin: window.innerWidth < 768 ? '56px 0px 55px 0px' : '120px auto'
       }}
     >
       {children}
-    </Flex>
+    </div>
   )
 }
-export default Content
+export default SiteBox

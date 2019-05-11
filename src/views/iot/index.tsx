@@ -5,7 +5,8 @@ import {
   Kpi,
   Chart,
   MachineVis,
-  SiteNavigation
+  SiteNavigation,
+  SiteBox
 } from '../../components'
 import data from '../../demo/data'
 
@@ -23,8 +24,11 @@ const machine = {
 export default class iot extends Component<any, any> {
   render() {
     return (
-      <React.Fragment>
-        <SiteNavigation data={['Machine1', 'Machine2']} onClick={setFilter} />
+      <SiteBox>
+        <SiteNavigation
+          data={['Dashobard', 'Machine1', 'Machine2', 'Machine3']}
+          onClick={setFilter}
+        />
 
         <Content>
           <Card
@@ -50,7 +54,7 @@ export default class iot extends Component<any, any> {
             width={500}
           />
         </Content>
-      </React.Fragment>
+      </SiteBox>
     )
   }
 }

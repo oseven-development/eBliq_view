@@ -3,6 +3,7 @@ import navigation from './navigation/main'
 import SiteNavigation from './navigation/side'
 import Card from './card'
 import Content from './content'
+import SiteBox from './content/siteBox'
 import Kpi from './kpi'
 import _Chart from './charts'
 import NotificationBar from './notificationBar'
@@ -21,5 +22,6 @@ export {
   MachineVis,
   List,
   SiteNavigation,
-  Drawer
+  Drawer,
+  SiteBox
 }

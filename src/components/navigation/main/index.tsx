@@ -24,9 +24,12 @@ const useStyles = makeStyles({
 
 const desktopStyle = makeStyles({
   root: {
-    width: '100vw',
     // backgroundColor: theme.palette.primary.main,
-    boxShadow: '0px 1px 3px #ccc'
+    boxShadow: '0px 1px 3px #ccc',
+    position: 'absolute',
+    width: '100vw',
+    top: '64px',
+    zIndex: 100
   }
 })
 const elementStyle = makeStyles({

@@ -24,7 +24,7 @@ const Header: React.FC<any> = (props: any) => {
   console.log(title)
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h1" color="inherit" className={classes.grow}>
             {title}
