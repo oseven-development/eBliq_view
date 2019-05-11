@@ -1,5 +1,5 @@
 export interface IIcon {
-  color: any
+  color?: any
   fontSize?: size
 }
 export type defColor =

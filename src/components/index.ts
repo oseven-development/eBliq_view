@@ -11,6 +11,7 @@ import MachineVis from './visualization/svgPlans/machineVis'
 import List from './lists/standardList'
 import Drawer from './drawer/index'
 import SearchField from './fields/searchField'
+import TextSnippet from './snippets'
 
 export {
   header as Header,
@@ -25,5 +26,6 @@ export {
   SiteNavigation,
   Drawer,
   SiteBox,
-  SearchField
+  SearchField,
+  TextSnippet
 }

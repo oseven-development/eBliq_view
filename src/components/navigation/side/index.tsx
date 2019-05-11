@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   root: {
     width: '100vw',
 
-    boxShadow: '0px 1px 3px #121212',
+    // boxShadow: '0px 1px 3px #121212',
     zIndex: 10000
   }
 })

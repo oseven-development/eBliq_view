@@ -6,8 +6,10 @@ import {
   Chart,
   MachineVis,
   SiteNavigation,
-  SiteBox
+  SiteBox,
+  TextSnippet
 } from '../../components'
+import {TagIcon} from '../../components/icons'
 import data from '../../demo/data'
 
 const sideNav = ['Machine1', 'Machine2']
@@ -33,6 +35,7 @@ export default class iot extends Component<any, any> {
         <Content>
           <Card
             content={<Kpi title={'Tagesumsatz'} value={'4000€'} growth={16} />}
+            footContent={<TextSnippet text={'getrackt von SAP ERP3'} icon={<TagIcon/>} />}
           />
           <Card
             content={
