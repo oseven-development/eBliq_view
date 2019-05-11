@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { Sales, IoT, Benachrichtigung } from '../../views'
+import { Sales, IoT, Benachrichtigung, Search } from '../../views'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import SettingsIcon from '@material-ui/icons/Settings'
+import SearchIcon from '@material-ui/icons/Search'
 import { EngineIcon } from '../../components/icons'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 
@@ -18,11 +19,20 @@ export interface IRoute {
 
 const routes: IRoute[] = [
   {
+    path: '/search',
+    component: Search,
+    groups: '',
+    displayName: 'Suche',
+    position: 1,
+    bottomNavigation: true,
+    icon: <SearchIcon />
+  },
+  {
     path: '/sales',
     component: Sales,
     groups: '',
-    displayName: 'Sales Dashboard',
-    position: 1,
+    displayName: 'Sales',
+    position: 2,
     bottomNavigation: true,
     icon: <DashboardIcon />
   },
@@ -30,8 +40,8 @@ const routes: IRoute[] = [
     path: '/iot',
     component: IoT,
     groups: '',
-    displayName: 'IoT Dashboard',
-    position: 2,
+    displayName: 'Produktion',
+    position: 3,
     bottomNavigation: true,
     icon: <EngineIcon color={'inherit'} />
   },
@@ -41,7 +51,7 @@ const routes: IRoute[] = [
     component: Benachrichtigung,
     groups: '',
     displayName: 'Benachrichtigungen',
-    position: 3,
+    position: 4,
     bottomNavigation: true,
     icon: <NotificationsIcon color={'inherit'} />
   },
@@ -50,7 +60,7 @@ const routes: IRoute[] = [
     component: IoT,
     groups: '',
     displayName: 'Einstellungen',
-    position: 4,
+    position: 5,
     bottomNavigation: true,
     icon: <SettingsIcon color={'inherit'} />
   }

@@ -74,7 +74,7 @@ const _BottomNavigation = (props: IProps) => {
     setTitle(newValue)
     // }
   }
-  const Limit = window.innerWidth < 800 ? 3 : 8
+  const Limit = window.innerWidth < 800 ? 4 : 8
   return (
     <BottomNavigation
       value={value}
