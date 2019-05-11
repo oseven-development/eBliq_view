@@ -64,21 +64,22 @@ const _BottomNavigation = (props: IProps) => {
   const [value, setValue] = React.useState('Inbox')
   const [toggle, setToggle] = React.useState(false)
   async function handleChange(newValue: any) {
-    if (newValue === 'Mehr') {
-    } else {
-      await setValue(newValue)
-      setTitle(newValue)
-    }
+    console.log(newValue)
+    // if (newValue === 'Mehr') {
+    // } else {
+    await setValue(newValue)
+    setTitle(newValue)
+    // }
   }
-
+  const Limit = window.innerWidth < 800 ? 3 : 8
   return (
     <BottomNavigation
       value={value}
-      onChange={handleChange}
+      // onChange={handleChange}
       className={width > 800 ? desktopClasses.root : classes.root}
     >
       {NavigationItems.map((e: any) => {
-        if (e.displayName && e.position && e.position < 3) {
+        if (e.displayName && e.position && e.position < Limit) {
           return (
             <BottomNavigationAction
               // @ts-ignore: Wait fix from material-UI
@@ -91,49 +92,58 @@ const _BottomNavigation = (props: IProps) => {
               style={{ minWidth: 'auto' }}
               classes={width > 800 ? desktopElementStyles : elementStyles}
               showLabel={true}
+              onClick={() => {
+                handleChange(e.displayName)
+              }}
             />
           )
         }
       })}
-      <BottomNavigationAction
-        onClick={() => {
-          setToggle(!toggle)
-        }}
-        label={'Mehr'}
-        value={'Mehr'}
-        icon={<MenuIcon />}
-        classes={width > 800 ? desktopElementStyles : elementStyles}
-        showLabel={true}
-      />
-      <Drawer
-        setToggle={() => {
-          setToggle(!toggle)
-        }}
-        openState={toggle}
-        Component={
-          <List>
-            {NavigationItems.map((e: any) => {
-              if (e.displayName && e.position && e.position >= 3) {
-                return (
-                  <Link
-                    to={e.path}
-                    onClick={() => {
-                      handleChange(e.diplayName)
-                    }}
-                  >
-                    <ListItem>
-                      <ListItemIcon>{e.icon}</ListItemIcon>
-                      <ListItemText primary={e.displayName} />{' '}
-                    </ListItem>
-                  </Link>
-                )
-              }
-            })}
-          </List>
-        }
-        anchor={'bottom'}
-        style={{ marginBottom: 55 }}
-      />
+      {window.innerWidth < 800 ? (
+        <React.Fragment>
+          <BottomNavigationAction
+            onClick={() => {
+              setToggle(!toggle)
+            }}
+            label={'Mehr'}
+            value={'Mehr'}
+            icon={<MenuIcon />}
+            classes={width > 800 ? desktopElementStyles : elementStyles}
+            showLabel={true}
+          />
+          <Drawer
+            setToggle={() => {
+              setToggle(!toggle)
+            }}
+            openState={toggle}
+            Component={
+              <List>
+                {NavigationItems.map((e: any) => {
+                  if (e.displayName && e.position && e.position >= Limit) {
+                    return (
+                      <Link
+                        to={e.path}
+                        onClick={() => {
+                          handleChange(e.displayName)
+                        }}
+                      >
+                        <ListItem>
+                          <ListItemIcon>{e.icon}</ListItemIcon>
+                          <ListItemText primary={e.displayName} />{' '}
+                        </ListItem>
+                      </Link>
+                    )
+                  }
+                })}
+              </List>
+            }
+            anchor={'bottom'}
+            style={{ marginBottom: 55 }}
+          />
+        </React.Fragment>
+      ) : (
+        ''
+      )}
     </BottomNavigation>
   )
 }

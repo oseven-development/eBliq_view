@@ -21,7 +21,7 @@ const styles = {
 
 const Header: React.FC<any> = (props: any) => {
   const { classes, title, notifications } = props
-
+  console.log(title)
   return (
     <div className={classes.root}>
       <AppBar position="static">
