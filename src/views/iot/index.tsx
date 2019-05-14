@@ -12,7 +12,7 @@ import {
 import { TagIcon } from '../../components/icons'
 import data from '../../demo/data'
 import { Button } from '@material-ui/core'
-import { eventSource } from '../../api/eventSource'
+import { SSE } from '../../api/eventSource'
 const sideNav = ['Machine1', 'Machine2']
 const setFilter = (filter: string) => {
   console.log(filter)
@@ -24,15 +24,23 @@ const machine = {
   machine3: 21,
   machine4: 11
 }
+const url = 'http://localhost:3555/get'
 
 const IotView = (props: any) => {
-  // React.useEffect(() => {
-  //   // add listener
-  //   return () => {
-  //     // remove listener
-  //   }
-  // })
-  const url = 'http://localhost:3555/get'
+  const con = new SSE(url)
+  React.useEffect(() => {
+    if (toggle) {
+      con.on()
+      console.log('on')
+    } else {
+      console.log('nicht on')
+      con.close()
+    }
+    return () => {
+      con.close()
+    }
+  })
+  const [toggle, setToggle] = React.useState(false)
 
   return (
     <SiteBox>
@@ -42,8 +50,7 @@ const IotView = (props: any) => {
       />
       <Button
         onClick={() => {
-          const x = eventSource(url)
-          console.log(x)
+          setToggle(!toggle)
         }}
       >
         Start Stream
