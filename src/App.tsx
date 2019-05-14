@@ -8,8 +8,6 @@ import { Navigation, Header } from './components'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import routes from './assets/routes'
 
-const url = 'http://localhost:3555/get'
-
 interface IState {
   data: any
   streamData: any
@@ -34,12 +32,12 @@ export default class App extends React.Component<any, any> {
     this.setTitle = this.setTitle.bind(this)
 
     // connect to the realtime database stream
-    let eventSource = new EventSource(url)
+    // let eventSource = new EventSource(url)
 
-    eventSource.onmessage = function(this: any, e: any) {
-      let parsedData: any = JSON.parse(e.data)
-      updateState(parsedData)
-    }
+    // eventSource.onmessage = function(this: any, e: any) {
+    //   let parsedData: any = JSON.parse(e.data)
+    //   updateState(parsedData)
+    // }
 
     const updateState = (newData: any) => {
       this.setState({
