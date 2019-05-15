@@ -1,7 +1,6 @@
 import React from 'react'
-import { Flex, Box } from 'rebass'
+import { Box } from 'rebass'
 import Typography from '@material-ui/core/Typography'
-import { lightTheme as theme } from '../../../assets/theme/theme'
 
 const MachineVis = (props: any) => {
   const { data, title } = props

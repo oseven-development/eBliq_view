@@ -20,7 +20,7 @@ const styles = {
 }
 
 const Header: React.FC<any> = (props: any) => {
-  const { classes, title, notifications } = props
+  const { classes, title } = props
   console.log(title)
   return (
     <div className={classes.root}>

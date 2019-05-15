@@ -1,6 +1,4 @@
-import React, { Children } from 'react'
-
-import { Flex } from 'rebass'
+import React from 'react'
 
 const SiteBox = (props: any) => {
   const { children } = props

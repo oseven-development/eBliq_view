@@ -1,15 +1,8 @@
 import React from 'react'
-import { Flex, Box } from 'rebass'
+import { Box } from 'rebass'
 import Typography from '@material-ui/core/Typography'
 import { lightTheme as theme } from '../../../assets/theme/theme'
-import {
-  XYPlot,
-  XAxis,
-  YAxis,
-  HorizontalGridLines,
-  RadialChart,
-  Hint
-} from 'react-vis'
+import { RadialChart } from 'react-vis'
 const gaugeChart = (props: any) => {
   const { title, size } = props
   const value = 35

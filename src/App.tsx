@@ -135,7 +135,7 @@ export default class App extends React.Component<any, any> {
           <Navigation setTitle={this.setTitle} width={window.innerWidth} />
           <React.Fragment>
             {routes.map((e: any) => (
-              <Route path={e.path} component={e.component} />
+              <Route path={e.path} component={e.component} key={e.path} />
             ))}
           </React.Fragment>
         </Router>

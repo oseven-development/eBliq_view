@@ -9,7 +9,6 @@ import {
 } from '../../components'
 import data from '../../demo/data'
 
-const sideNav = ['Machine1', 'Machine2']
 const setFilter = (filter: string) => {
   console.log(filter)
 }

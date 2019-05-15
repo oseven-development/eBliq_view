@@ -1,6 +1,5 @@
-import React, { Children } from 'react'
+import React from 'react'
 import Typography from '@material-ui/core/Typography'
-import { withStyles } from '@material-ui/core/styles'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
 import ArrowDownWardIcon from '@material-ui/icons/ArrowDownward'
 import { Flex, Box } from 'rebass'

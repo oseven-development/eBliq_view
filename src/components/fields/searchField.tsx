@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 import FilterListIcon from '@material-ui/icons/FilterList'
 import SearchIcon from '@material-ui/icons/Search'
-import { Flex, Box } from 'rebass'
 import { Button } from '@material-ui/core'
 const styles = {
   root: {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   Card,
   Content,
@@ -13,7 +13,7 @@ import { TagIcon } from '../../components/icons'
 import data from '../../demo/data'
 import { Button } from '@material-ui/core'
 import { SSE } from '../../api/eventSource'
-const sideNav = ['Machine1', 'Machine2']
+
 const setFilter = (filter: string) => {
   console.log(filter)
 }

@@ -10,7 +10,6 @@ import ListItemText from '@material-ui/core/ListItemText'
 import { Drawer } from '../../index'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
-import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles({
   root: {

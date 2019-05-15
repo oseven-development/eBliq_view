@@ -1,9 +1,8 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-import { Flex, Box } from 'rebass'
-import breakpoints from '../../assets/theme/breakpoints'
-import { Divider, Button } from '@material-ui/core'
+import { Box } from 'rebass'
+import { Divider } from '@material-ui/core'
 
 const styles = {
   card: {
@@ -14,17 +13,7 @@ const styles = {
   }
 }
 const _Card = (props: any) => {
-  const {
-    classes,
-    content,
-    title,
-    my,
-    mx,
-    alignItems,
-    width,
-    footContent
-  } = props
-  console.log(props)
+  const { classes, content, my, mx, alignItems, width, footContent } = props
   return (
     <Box
       mx={mx ? mx : 10}

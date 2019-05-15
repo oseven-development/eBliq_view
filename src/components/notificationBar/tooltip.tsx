@@ -1,9 +1,8 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
-import Avatar from '@material-ui/core/Avatar'
+
 import { Flex, Box } from 'rebass'
-import { Typography, Button } from '@material-ui/core'
-import InfoIcon from '@material-ui/icons/Info'
+import { Button } from '@material-ui/core'
+
 import { List } from '../index'
 import { Link } from 'react-router-dom'
 import Divider from '@material-ui/core/Divider'

@@ -1,14 +1,5 @@
 import React, { Component } from 'react'
-import {
-  Card,
-  Content,
-  Kpi,
-  Chart,
-  MachineVis,
-  SearchField,
-  SiteBox
-} from '../../components'
-import data from '../../demo/data'
+import { Content, SearchField, SiteBox } from '../../components'
 
 export default class Search extends Component<any, any> {
   render() {

@@ -1,8 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
-import Avatar from '@material-ui/core/Avatar'
-import { Flex, Box } from 'rebass'
-import { Typography } from '@material-ui/core'
+
 import InfoIcon from '@material-ui/icons/Info'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 

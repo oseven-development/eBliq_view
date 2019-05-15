@@ -7,7 +7,7 @@ import {
   LineSeries,
   Hint
 } from 'react-vis'
-import { Flex, Box } from 'rebass'
+import { Box } from 'rebass'
 import Typography from '@material-ui/core/Typography'
 import { lightTheme as theme } from '../../../assets/theme/theme'
 
@@ -62,8 +62,8 @@ const LineChart = (props: any) => {
               strokeWidth="3px"
             />
           )}
-          {hint !== false ? <Hint value={hint} /> : <div />}
-
+          {/* //! wirft viele Fehler */}
+          {/* {hint !== false ? <Hint value={hint} /> : <div />} */}
           <XAxis tickTotal={xTickTotal ? xTickTotal : null} />
           <YAxis tickTotal={yTickTotal ? yTickTotal : null} />
         </XYPlot>
