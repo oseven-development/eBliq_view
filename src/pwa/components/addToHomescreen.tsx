@@ -7,8 +7,6 @@ export const AddToHomescreen = () => {
   const [prompt, promptToInstall] = useAddToHomescreenPrompt()
   const [isVisible, setVisibleState] = React.useState(false)
 
-  const hide = () => setVisibleState(false)
-  console.log(prompt)
   React.useEffect(() => {
     if (prompt) {
       setVisibleState(true)
@@ -22,7 +20,7 @@ export const AddToHomescreen = () => {
   return (
     <React.Fragment>
       <IconButton onClick={promptToInstall}>
-        <AddToHomeScreenIcon />
+        <AddToHomeScreenIcon color="action" />
       </IconButton>
     </React.Fragment>
   )

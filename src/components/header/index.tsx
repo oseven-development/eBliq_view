@@ -30,6 +30,7 @@ const Header: React.FC<any> = (props: any) => {
           <Typography variant="h1" color="inherit" className={classes.grow}>
             {title}
           </Typography>
+
           <AddToHomescreen />
           <NotificationBar />
         </Toolbar>

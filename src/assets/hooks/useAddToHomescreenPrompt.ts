@@ -35,25 +35,7 @@ export function useAddToHomescreenPrompt(): [
 
       setState(e)
     }
-    // if (window.matchMedia('(display-mode: standalone)').matches) {
-    //   console.log('App is already installed and running in standalone')
-    //   setInstall('already installed')
-    // } else {
-    //   window.addEventListener('beforeinstallprompt', (e: any) => {
-    //     console.log('fired')
-    //     console.log('beforeinstallprompt has fired', e)
-    //     // Prevent Chrome 67 and earlier from automatically showing the prompt
-    //     e.preventDefault()
-    //     // Stash the event so it can be triggered later.
-    //     window.deferredPrompt = e
-    //     setInstall('ready to install')
-    //   })
-    //   // this event fires only when app is installed
-    //   window.addEventListener('appinstalled', (evt: any) => {
-    //     console.log('App was successfully installed')
-    //     setInstall('installed')
-    //   })
-    // }
+
     window.addEventListener('beforeinstallprompt', ready as any)
 
     return () => {
@@ -63,3 +45,23 @@ export function useAddToHomescreenPrompt(): [
 
   return [prompt, promptToInstall]
 }
+
+// if (window.matchMedia('(display-mode: standalone)').matches) {
+//   console.log('App is already installed and running in standalone')
+//   setInstall('already installed')
+// } else {
+//   window.addEventListener('beforeinstallprompt', (e: any) => {
+//     console.log('fired')
+//     console.log('beforeinstallprompt has fired', e)
+//     // Prevent Chrome 67 and earlier from automatically showing the prompt
+//     e.preventDefault()
+//     // Stash the event so it can be triggered later.
+//     window.deferredPrompt = e
+//     setInstall('ready to install')
+//   })
+//   // this event fires only when app is installed
+//   window.addEventListener('appinstalled', (evt: any) => {
+//     console.log('App was successfully installed')
+//     setInstall('installed')
+//   })
+// }

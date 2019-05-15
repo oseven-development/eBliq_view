@@ -55,7 +55,6 @@ const NotificationBar = (props: any) => {
           disableFocusListener
           disableHoverListener
           title={<TPcust notifications={notifications} />}
-          style={{ marginLeft: 30 }}
           interactive={true}
         >
           <IconButton
