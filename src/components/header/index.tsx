@@ -3,8 +3,9 @@ import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-
 import { NotificationBar } from '../index'
+import { AddToHomescreen } from '../../pwa'
+
 const styles = {
   root: {
     flexGrow: 1,
@@ -29,6 +30,7 @@ const Header: React.FC<any> = (props: any) => {
           <Typography variant="h1" color="inherit" className={classes.grow}>
             {title}
           </Typography>
+          <AddToHomescreen />
           <NotificationBar />
         </Toolbar>
       </AppBar>

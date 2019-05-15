@@ -26,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "ngrok": "ngrok http 5000"
+    "ngrok": "ngrok http 5000",
+    "test-prod": "react-scripts build && serve -s build && npm run ngrok"
   },
   "eslintConfig": {
     "extends": "react-app"

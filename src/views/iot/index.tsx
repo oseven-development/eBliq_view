@@ -59,7 +59,10 @@ const IotView = (props: any) => {
         <Card
           content={<Kpi title={'Tagesumsatz'} value={'4000€'} growth={16} />}
           footContent={
-            <TextSnippet text={'getrackt von SAP ERP3'} icon={<TagIcon />} />
+            <TextSnippet
+              text={'SAP ERP3'}
+              icon={<TagIcon fontSize={'small'} />}
+            />
           }
         />
         <Card

@@ -4,5 +4,6 @@ export const color = {
   success: '#0AB464',
   error: '#CC4742',
   background: '#f0f0f0',
-  backgroundTooltip: '#706F6F'
+  backgroundTooltip: '#706F6F',
+  grey: '#AAAAAA'
 }

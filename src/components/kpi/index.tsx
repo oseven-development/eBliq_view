@@ -4,7 +4,7 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
 import ArrowDownWardIcon from '@material-ui/icons/ArrowDownward'
 import { Flex, Box } from 'rebass'
 import { color } from '../../assets/theme/color'
-
+import { formatCurrency } from '../../assets/formats/currency'
 const Kpi = (props: any) => {
   const { title, value, growth, displayGrowth } = props
   return (
@@ -14,9 +14,9 @@ const Kpi = (props: any) => {
           {title}
         </Typography>
       </Box>
-      <Box>
+      <Box mt={'10px'} mb={'20px'}>
         <Typography variant="h3" color="inherit">
-          {value}
+          {formatCurrency(value)}
         </Typography>
       </Box>
 
@@ -25,22 +25,26 @@ const Kpi = (props: any) => {
       ) : (
         <Box>
           <Typography variant="subtitle1" color="inherit">
-            <Flex justifyContent={'center'} style={{ color: color.success }}>
+            <Flex
+              justifyContent={'center'}
+              alignItems={'center'}
+              style={{
+                color:
+                  growth > 0
+                    ? color.success
+                    : growth === 0
+                    ? 'default'
+                    : color.error
+              }}
+            >
               {growth > 0 ? (
-                <React.Fragment>
-                  <Box>
-                    <ArrowUpwardIcon />
-                  </Box>
-                  <Box> {growth} %</Box>
-                </React.Fragment>
+                <ArrowUpwardIcon />
+              ) : growth < 0 ? (
+                <ArrowDownWardIcon />
               ) : (
-                <React.Fragment>
-                  <Box>
-                    <ArrowDownWardIcon />
-                  </Box>
-                  <Box> {growth} %</Box>
-                </React.Fragment>
+                ''
               )}
+              {growth} %
             </Flex>
           </Typography>
         </Box>

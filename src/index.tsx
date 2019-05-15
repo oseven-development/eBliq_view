@@ -10,13 +10,13 @@ ReactDOM.render(<App />, document.getElementById('root'))
 // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister()
 
-// if ('serviceWorker' in navigator) {
-//   navigator.serviceWorker
-//     .register('/service-worker.js', { scope: '/' })
-//     .then(function(registration) {
-//       console.log('Service Worker Registered')
-//     })
-//   navigator.serviceWorker.ready.then(function(registration) {
-//     console.log('Service Worker Ready')
-//   })
-// }
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker.js', { scope: '/' })
+    .then(function(registration) {
+      console.log('Service Worker Registered')
+    })
+  navigator.serviceWorker.ready.then(function(registration) {
+    console.log('Service Worker Ready')
+  })
+}
