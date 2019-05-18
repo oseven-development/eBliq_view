@@ -1,7 +1,9 @@
+/** @format */
+
 import * as React from 'react'
-import { useAddToHomescreenPrompt } from '../../assets/hooks/useAddToHomescreenPrompt'
+import {useAddToHomescreenPrompt} from '../hooks/useAddToHomescreenPrompt'
 import AddToHomeScreenIcon from '@material-ui/icons/AddToHomeScreen'
-import { IconButton } from '@material-ui/core'
+import {IconButton} from '@material-ui/core'
 
 export const AddToHomescreen = () => {
   const [prompt, promptToInstall] = useAddToHomescreenPrompt()
