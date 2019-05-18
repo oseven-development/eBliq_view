@@ -15,6 +15,6 @@ export const getFilteredArray = (arr: any[], filterValue: number, filterProperty
     case '!==':
       return arr.filter((e: any) => e[filterProperty] !== filterValue)
     default:
-      return null
+      return arr
   }
 }
