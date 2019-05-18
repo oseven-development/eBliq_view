@@ -1,22 +1,15 @@
 /** @format */
 
 import React from 'react'
-import PropTypes from 'prop-types'
-import {withStyles} from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
+import {Flex} from 'rebass'
 import Button from '@material-ui/core/Button'
 import Popover from '@material-ui/core/Popover'
 import {IconButton, Badge} from '@material-ui/core'
-import {ToolTip as TPcust} from './tooltip'
 import InfoIcon from '@material-ui/icons/Info'
+import {List} from '../index'
 
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive'
-const styles = (theme: any) => ({
-  typography: {
-    margin: theme.spacing.unit * 2,
-  },
-})
 
 const _notification = (props: any) => {
   const {classes, button} = props
@@ -58,14 +51,19 @@ const _notification = (props: any) => {
           vertical: 'top',
           horizontal: 'center',
         }}
-        style={{marginTop: -65}}>
-        <TPcust notifications={notifications} />
+        style={{marginTop: -65, minWidth: 450}}>
+        <Flex alignItems="center" flexDirection={'column'}>
+          <List data={notifications} divider={true} />
+          <Button color="primary" size="small" variant="contained" style={{margin: 10}}>
+            See all
+          </Button>
+        </Flex>
       </Popover>
     </React.Fragment>
   )
 }
 
-export default withStyles(styles)(_notification)
+export default _notification
 
 const notes = [
   {

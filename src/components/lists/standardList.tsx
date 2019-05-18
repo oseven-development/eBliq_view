@@ -1,5 +1,7 @@
+/** @format */
+
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles'
+import {withStyles} from '@material-ui/core/styles'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
@@ -7,18 +9,12 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import ListItemText from '@material-ui/core/ListItemText'
 import Avatar from '@material-ui/core/Avatar'
+import {ArrowForwardIos} from '@material-ui/icons'
 
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import {Divider} from '@material-ui/core'
 
-type Tcolors =
-  | 'inherit'
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'textPrimary'
-  | 'textSecondary'
-  | 'error'
-  | undefined
+type Tcolors = 'inherit' | 'default' | 'primary' | 'secondary' | 'textPrimary' | 'textSecondary' | 'error' | undefined
 
 interface IList {
   data: any
@@ -26,30 +22,32 @@ interface IList {
   avatar?: true
   icon?: JSX.Element
   action?: JSX.Element
-  color?: { primary: Tcolors; secondary: Tcolors }
+  color?: {primary: Tcolors; secondary: Tcolors}
   isLink?: true
+  divider?: true
 }
 
 const styles = (theme: any) => ({
   root: {
     flexGrow: 1,
     maxWidth: 752,
-    color: 'white'
+    minWidth: 300,
+    color: 'white',
   },
   demo: {
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
   },
   title: {
-    margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`
-  }
+    margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`,
+  },
 })
 
 const standardList = (props: IList) => {
-  const { data, dense, avatar, action, color, isLink } = props
+  const {data, dense, avatar, action, color, isLink, divider} = props
   console.log(data)
   return (
     <React.Fragment>
-      <List dense={dense}>
+      <List dense={dense} style={{minWidth: 300}}>
         {data.map((e: any) => {
           return isLink === true ? (
             <Link to={e.to}>
@@ -57,43 +55,42 @@ const standardList = (props: IList) => {
                 button
                 onClick={() => {
                   console.log('object')
-                }}
-              >
+                }}>
                 <ListItemIcon>{e.icon}</ListItemIcon>
-                <ListItemText
-                  primary={e.primary}
-                  primaryTypographyProps={color ? { color: color.primary } : {}}
-                />
+                <ListItemText primary={e.primary} primaryTypographyProps={color ? {color: color.primary} : {}} />
+                <ArrowForwardIos fontSize={'small'} />
               </ListItem>
+              {divider ? <Divider /> : ''}
             </Link>
           ) : (
-            <ListItem
-              button={isLink ? true : false}
-              onClick={() => {
-                console.log('object')
-              }}
-            >
-              {e.icon ? (
-                avatar ? (
-                  <ListItemAvatar>
-                    <Avatar>{e.icon}</Avatar>
-                  </ListItemAvatar>
+            <React.Fragment>
+              <ListItem
+                button={isLink ? true : false}
+                onClick={() => {
+                  console.log('object')
+                }}>
+                {e.icon ? (
+                  avatar ? (
+                    <ListItemAvatar>
+                      <Avatar>{e.icon}</Avatar>
+                    </ListItemAvatar>
+                  ) : (
+                    <ListItemIcon>{e.icon}</ListItemIcon>
+                  )
                 ) : (
-                  <ListItemIcon>{e.icon}</ListItemIcon>
-                )
-              ) : (
-                ''
-              )}
-              <ListItemText
-                primary={e.primary}
-                secondary={e.secondary ? e.secondary : null}
-                primaryTypographyProps={color ? { color: color.primary } : {}}
-                secondaryTypographyProps={color ? { color: color.primary } : {}}
-              />
-              {action ? (
-                <ListItemSecondaryAction>{action}</ListItemSecondaryAction>
-              ) : null}
-            </ListItem>
+                  ''
+                )}
+                <ListItemText
+                  primary={e.primary}
+                  secondary={e.secondary ? e.secondary : null}
+                  primaryTypographyProps={color ? {color: color.primary} : {}}
+                  secondaryTypographyProps={color ? {color: color.primary} : {}}
+                />
+                {/* {action ? <ListItemSecondaryAction>{action}</ListItemSecondaryAction> : null} */}
+                <ArrowForwardIos fontSize={'small'} />
+              </ListItem>
+              {divider ? <Divider /> : ''}
+            </React.Fragment>
           )
         })}
       </List>
