@@ -1,15 +1,14 @@
+/** @format */
+
 import React from 'react'
-import { Box } from 'rebass'
+import {Box} from 'rebass'
 import Typography from '@material-ui/core/Typography'
-import { lightTheme as theme } from '../../../assets/theme/theme'
-import { RadialChart } from 'react-vis'
+import {lightTheme as theme} from '../../../assets/theme/theme'
+import {RadialChart} from 'react-vis'
 const gaugeChart = (props: any) => {
-  const { title, size } = props
+  const {title, size} = props
   const value = 35
-  const chartValue = [
-    { theta: value / 100, color: theme.palette.primary.main },
-    { theta: 1 - value / 100, color: '#ccc' }
-  ]
+  const chartValue = [{theta: value / 100, color: theme.palette.primary.main}, {theta: 1 - value / 100, color: '#ccc'}]
 
   return (
     <React.Fragment>
@@ -24,9 +23,8 @@ const gaugeChart = (props: any) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginTop: 15
-          }}
-        >
+            marginTop: 15,
+          }}>
           <RadialChart
             innerRadius={size ? size / 2 - 15 : 75}
             radius={size ? size / 2 : 90}
@@ -41,9 +39,8 @@ const gaugeChart = (props: any) => {
           <div
             style={{
               position: 'absolute',
-              padding: '5px'
-            }}
-          >
+              padding: '5px',
+            }}>
             <Typography variant="h2" color="primary">
               {value} %
             </Typography>
