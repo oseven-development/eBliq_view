@@ -5,7 +5,8 @@ import {Card, Content, Kpi, Chart, MachineVis, SiteNavigation, SiteBox, TextSnip
 import {TagIcon} from '../../components/icons'
 import data from '../../demo/data'
 import {Button} from '@material-ui/core'
-import {useEventsource} from '../../assets/hooks/index'
+import {useEventsource} from '../../assets/hooks'
+import {notification} from '../../utils/notification'
 
 const setFilter = (filter: string) => {
   console.log(filter)
@@ -30,6 +31,7 @@ const IotView = (props: any) => {
       <Button
         onClick={() => {
           setToggle(!toggle)
+          notification('Simulation gestartet')
         }}>
         Start Stream
       </Button>
