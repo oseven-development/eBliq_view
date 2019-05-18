@@ -6,6 +6,7 @@ import {withStyles} from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import {Flex, Box} from 'rebass'
+import {Label} from '../index'
 import {color} from '../../assets/theme/color'
 const styles = (theme: any) => ({
   root: {
@@ -31,13 +32,7 @@ const _paper = (props: any) => {
             flexDirection: 'row',
           }}
           px={'24px'}>
-          <Typography variant="h4">{title}</Typography>
-
-          {subtitle ? (
-            <Typography variant="h6" style={{marginLeft: 7, color: color.grey}}>
-              {subtitle}
-            </Typography>
-          ) : null}
+          <Label title={title} subtitle={subtitle} />
         </Box>
         <Box px={'24px'}>{body}</Box>
         <Box

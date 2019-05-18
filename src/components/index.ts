@@ -16,6 +16,7 @@ import SearchField from './fields/searchField'
 import TextSnippet from './snippets'
 import SnackBar from './snackbar'
 import Paper from './paper'
+import Label from './label'
 export {
   header as Header,
   navigation as Navigation,
@@ -33,4 +34,5 @@ export {
   TextSnippet,
   SnackBar,
   Paper,
+  Label,
 }
