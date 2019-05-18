@@ -1,7 +1,7 @@
 /** @format */
 import {getAttributeArray} from './filter/getAttributeArray'
 import {getFilteredArray} from './filter/getFilteredArray'
-import {sum, min, max, avg} from './measures/calculations'
+import {sum, min, max, avg, dif, pctDif} from './measures/calculations'
 
 export class cArray {
   private arr: any[]
@@ -27,5 +27,11 @@ export class cArray {
   }
   public avg() {
     return avg(this.arr)
+  }
+  public dif() {
+    return dif(this.arr)
+  }
+  public pctDif() {
+    return pctDif(this.arr)
   }
 }
