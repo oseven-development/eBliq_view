@@ -1,10 +1,12 @@
+/** @format */
+
 import React from 'react'
 
-import { Sales, IoT, Benachrichtigung, Search } from '../../views'
+import {Sales, IoT, Benachrichtigung, Search, SettingsView} from '../../views'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import SettingsIcon from '@material-ui/icons/Settings'
 import SearchIcon from '@material-ui/icons/Search'
-import { EngineIcon } from '../../components/icons'
+import {EngineIcon} from '../../components/icons'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 
 export interface IRoute {
@@ -25,7 +27,7 @@ const routes: IRoute[] = [
     displayName: 'Suche',
     position: 1,
     bottomNavigation: true,
-    icon: <SearchIcon />
+    icon: <SearchIcon />,
   },
   {
     path: '/sales',
@@ -34,7 +36,7 @@ const routes: IRoute[] = [
     displayName: 'Sales',
     position: 2,
     bottomNavigation: true,
-    icon: <DashboardIcon />
+    icon: <DashboardIcon />,
   },
   {
     path: '/iot',
@@ -43,7 +45,7 @@ const routes: IRoute[] = [
     displayName: 'Produktion',
     position: 3,
     bottomNavigation: true,
-    icon: <EngineIcon color={'inherit'} />
+    icon: <EngineIcon color={'inherit'} />,
   },
 
   {
@@ -53,17 +55,17 @@ const routes: IRoute[] = [
     displayName: 'Benachrichtigungen',
     position: 4,
     bottomNavigation: true,
-    icon: <NotificationsIcon color={'inherit'} />
+    icon: <NotificationsIcon color={'inherit'} />,
   },
   {
     path: '/einstellungen',
-    component: IoT,
+    component: SettingsView,
     groups: '',
     displayName: 'Einstellungen',
     position: 5,
     bottomNavigation: true,
-    icon: <SettingsIcon color={'inherit'} />
-  }
+    icon: <SettingsIcon color={'inherit'} />,
+  },
 ]
 
 export default routes

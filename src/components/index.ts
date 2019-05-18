@@ -15,7 +15,7 @@ import Drawer from './drawer/index'
 import SearchField from './fields/searchField'
 import TextSnippet from './snippets'
 import SnackBar from './snackbar'
-
+import Paper from './paper'
 export {
   header as Header,
   navigation as Navigation,
@@ -32,4 +32,5 @@ export {
   SearchField,
   TextSnippet,
   SnackBar,
+  Paper,
 }
