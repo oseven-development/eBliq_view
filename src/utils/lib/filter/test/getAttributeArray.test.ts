@@ -24,11 +24,11 @@ test('get Attribute Array ', () => {
 })
 
 test('test Chain', () => {
-  expect(sum(getAttributeArray(getFilteredArray(testArr, 1, 'value', '>'), 'value'))).toEqual(7)
+  expect(sum(getAttributeArray(getFilteredArray(testArr, 'value', '>', 1), 'value'))).toEqual(7)
   const arr = new cArray(testArr)
   expect(
     arr
-      .getFilteredArray(1, 'value', '>')
+      .getFilteredArray('value', '>', 1)
       .getAttributeArray('value')
       .sum(),
   ).toEqual(7)

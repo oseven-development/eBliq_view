@@ -5,17 +5,15 @@ import {sum, min, max, avg} from './measures/calculations'
 
 export class cArray {
   private arr: any[]
-  private measure: number
   constructor(arr: any[]) {
     this.arr = arr
-    this.measure = 0
   }
   public getAttributeArray(attribute: string) {
     this.arr = getAttributeArray(this.arr, attribute)
     return this
   }
-  public getFilteredArray(filterValue: number, filterProperty: string, filterOperator: string) {
-    this.arr = getFilteredArray(this.arr, filterValue, filterProperty, filterOperator)
+  public getFilteredArray(filterProperty: string, filterOperator: string, filterValue: number) {
+    this.arr = getFilteredArray(this.arr, filterProperty, filterOperator, filterValue)
     return this
   }
   public sum() {

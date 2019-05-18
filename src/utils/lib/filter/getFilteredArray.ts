@@ -1,6 +1,11 @@
 /** @format */
 
-export const getFilteredArray = (arr: any[], filterValue: number, filterProperty: string, filterOperator: string) => {
+export const getFilteredArray = (
+  arr: any[],
+  filterProperty: string,
+  filterOperator: string,
+  filterValue: string | number,
+) => {
   switch (filterOperator) {
     case '>':
       return arr.filter((e: any) => e[filterProperty] > filterValue)

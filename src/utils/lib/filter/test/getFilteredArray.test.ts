@@ -30,26 +30,26 @@ const testArr = [
 ]
 
 test('> ', () => {
-  expect(getFilteredArray(testArr, 2, 'value', '>')).toContainEqual({id: 4, value: 7})
-  expect(getFilteredArray(testArr, 2, 'value', '>')).not.toContainEqual({id: 1, value: 1})
+  expect(getFilteredArray(testArr, 'value', '>', 2)).toContainEqual({id: 4, value: 7})
+  expect(getFilteredArray(testArr, 'value', '>', 2)).not.toContainEqual({id: 1, value: 1})
 })
 test('>= ', () => {
-  expect(getFilteredArray(testArr, 1, 'value', '>=')).toContainEqual({id: 1, value: 1})
-  expect(getFilteredArray(testArr, 1, 'value', '>=')).not.toContainEqual({id: 0, value: 0})
+  expect(getFilteredArray(testArr, 'value', '>=', 1)).toContainEqual({id: 1, value: 1})
+  expect(getFilteredArray(testArr, 'value', '>=', 1)).not.toContainEqual({id: 0, value: 0})
 })
 test('===', () => {
-  expect(getFilteredArray(testArr, 7, 'value', '===')).toContainEqual({id: 4, value: 7})
-  expect(getFilteredArray(testArr, 7, 'value', '===')).not.toContainEqual({id: 1, value: 1})
+  expect(getFilteredArray(testArr, 'value', '===', 7)).toContainEqual({id: 4, value: 7})
+  expect(getFilteredArray(testArr, 'value', '===', 7)).not.toContainEqual({id: 1, value: 1})
 })
 test('<', () => {
-  expect(getFilteredArray(testArr, 2, 'value', '<')).toContainEqual({id: 1, value: 1})
-  expect(getFilteredArray(testArr, 2, 'value', '<')).not.toContainEqual({id: 4, value: 7})
+  expect(getFilteredArray(testArr, 'value', '<', 2)).toContainEqual({id: 1, value: 1})
+  expect(getFilteredArray(testArr, 'value', '<', 2)).not.toContainEqual({id: 4, value: 7})
 })
 test('<= ', () => {
-  expect(getFilteredArray(testArr, 7, 'value', '<=')).toContainEqual({id: 4, value: 7})
-  expect(getFilteredArray(testArr, 7, 'value', '<=')).not.toContainEqual({id: 3, value: 10})
+  expect(getFilteredArray(testArr, 'value', '<=', 7)).toContainEqual({id: 4, value: 7})
+  expect(getFilteredArray(testArr, 'value', '<=', 7)).not.toContainEqual({id: 3, value: 10})
 })
 test('!== ', () => {
-  expect(getFilteredArray(testArr, 7, 'value', '!==')).toContainEqual({id: 1, value: 1})
-  expect(getFilteredArray(testArr, 7, 'value', '!==')).not.toContainEqual({id: 4, value: 7})
+  expect(getFilteredArray(testArr, 'value', '!==', 7)).toContainEqual({id: 1, value: 1})
+  expect(getFilteredArray(testArr, 'value', '!==', 7)).not.toContainEqual({id: 4, value: 7})
 })
