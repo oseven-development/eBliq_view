@@ -1,51 +1,48 @@
-import { createMuiTheme } from '@material-ui/core/styles'
-import { color } from './color'
+/** @format */
+
+import {createMuiTheme} from '@material-ui/core/styles'
+import {color} from './color'
 const defaultTheme = {
   typography: {
     useNextVariants: true,
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto'
-    ].join(','),
+    fontFamily: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto'].join(','),
     h1: {
       fontSize: '1.5rem',
-      fontWeight: 600
+      fontWeight: 600,
     },
     h3: {
       fontSize: '2rem',
-      fontWeight: 600
+      fontWeight: 600,
     },
     h2: {
-      fontSize: '1.4rem',
-      fontWeight: 400
+      fontSize: '1.5rem',
+      fontWeight: 400,
     },
     subtitle1: {
-      fontSize: '1rem'
+      fontSize: '1rem',
     },
     h4: {
-      fontSize: '1rem'
+      fontSize: '1rem',
     },
     h6: {
-      fontSize: '0.8rem'
-    }
-  }
+      fontSize: '0.8rem',
+    },
+  },
 }
 
 export const lightTheme = createMuiTheme({
   ...defaultTheme,
   palette: {
     primary: {
-      main: color.primary
+      main: color.primary,
     },
     secondary: {
-      main: color.secondary
-    }
+      main: color.secondary,
+    },
     // background: {
     //   paper: color.backgroundPaper
     // }
-  }
+  },
 })
 // console.log(lightTheme)
 // export const darkTheme = createMuiTheme({

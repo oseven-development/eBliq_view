@@ -20,9 +20,7 @@ const styles = (theme: any) => ({
     alignItems: 'center',
     display: 'flex',
   },
-  title: {
-    fontWeight: 500,
-  },
+
   subtitle: {
     fontWeight: 400,
     marginLeft: theme.spacing.unit + theme.spacing.unit,
@@ -31,12 +29,12 @@ const styles = (theme: any) => ({
 })
 
 const Label = (props: any) => {
-  const {classes, icon, title, subtitle} = props
+  const {classes, icon, title, subtitle, color} = props
   return (
     <React.Fragment>
       {icon && <span className={classes.icon}>{icon}</span>}
       {title && (
-        <Typography className={classes.title} variant="h2">
+        <Typography className={classes.title} variant="h2" color={color ? color : 'inherit'}>
           {title}
         </Typography>
       )}
