@@ -1,11 +1,15 @@
-/* eslint-disable no-restricted-globals */
+/**
+ * /* eslint-disable no-restricted-globals
+ *
+ * @format
+ */
 
 import React from 'react'
 
-import { MuiThemeProvider } from '@material-ui/core'
-import { lightTheme as theme } from './assets/theme/theme'
-import { Navigation, Header } from './components'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import {MuiThemeProvider} from '@material-ui/core'
+import {lightTheme as theme} from './assets/theme/theme'
+import {Navigation, Header, SnackBar} from './components'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import routes from './assets/routes'
 interface IState {
   data: any
@@ -46,17 +50,27 @@ declare const window: any
 
 const App = () => {
   const [title, setTitle] = React.useState('Suche')
+  const [snack, setSnack] = React.useState({open: false, variant: 'info', message: 'das ist ein Test'})
+
   return (
     <MuiThemeProvider theme={theme}>
       <Router>
         <Header title={title} notifications={1} />
         <Navigation setTitle={setTitle} width={window.innerWidth} />
         <React.Fragment>
-          {routes.map((e: any) => (
-            <Route path={e.path} component={e.component} key={e.path} />
-          ))}
+          {routes.map((e: any) => {
+            const Component = e.component
+            return (
+              <Route
+                path={e.path}
+                component={(props: any) => <Component {...props} setSnack={setSnack} snack={snack} />}
+                key={e.path}
+              />
+            )
+          })}
         </React.Fragment>
       </Router>
+      <SnackBar open={snack.open} snack={snack} setSnack={setSnack} variant={snack.variant} message={snack.message} />
     </MuiThemeProvider>
   )
 }

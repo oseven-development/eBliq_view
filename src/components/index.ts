@@ -1,3 +1,5 @@
+/** @format */
+
 import header from './header'
 import navigation from './navigation/main'
 import SiteNavigation from './navigation/side'
@@ -12,6 +14,7 @@ import List from './lists/standardList'
 import Drawer from './drawer/index'
 import SearchField from './fields/searchField'
 import TextSnippet from './snippets'
+import SnackBar from './snackbar'
 
 export {
   header as Header,
@@ -27,5 +30,6 @@ export {
   Drawer,
   SiteBox,
   SearchField,
-  TextSnippet
+  TextSnippet,
+  SnackBar,
 }
