@@ -20,7 +20,10 @@ const _paper = (props: any) => {
   const {classes, title, body, footer, subtitle} = props
 
   return (
-    <Paper className={classes.root} elevation={0} style={{padding: 0, border: `1px solid ${color.lightgrey}`}}>
+    <Paper
+      className={classes.root}
+      elevation={0}
+      style={{padding: 0, border: `1px solid ${color.lightgrey}`, margin: '20px 10px'}}>
       <Flex flexDirection={'column'} justifyContent="center">
         <Box
           style={{

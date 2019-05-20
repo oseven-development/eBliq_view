@@ -4,7 +4,7 @@ import React from 'react'
 
 // Material helpers
 import {withStyles} from '@material-ui/core'
-
+import {Flex} from 'rebass'
 // Material components
 import {Typography} from '@material-ui/core'
 
@@ -31,7 +31,7 @@ const styles = (theme: any) => ({
 const Label = (props: any) => {
   const {classes, icon, title, subtitle, color} = props
   return (
-    <React.Fragment>
+    <Flex alignItems="flex-end">
       {icon && <span className={classes.icon}>{icon}</span>}
       {title && (
         <Typography className={classes.title} variant="h2" color={color ? color : 'inherit'}>
@@ -43,7 +43,7 @@ const Label = (props: any) => {
           {subtitle}
         </Typography>
       )}
-    </React.Fragment>
+    </Flex>
   )
 }
 
