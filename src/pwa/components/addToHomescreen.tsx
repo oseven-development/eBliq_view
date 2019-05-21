@@ -21,7 +21,7 @@ export const AddToHomescreen = () => {
 
   return (
     <React.Fragment>
-      <IconButton onClick={promptToInstall}>
+      <IconButton onClick={promptToInstall} color={'inherit'}>
         <AddToHomeScreenIcon color="action" />
       </IconButton>
     </React.Fragment>
