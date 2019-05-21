@@ -34,7 +34,7 @@ export const SearchMore = (props: any) => {
               id="outlined-name"
               label="Kunde"
               margin="normal"
-              variant="filled"
+              variant="outlined"
               style={{
                 margin: window.innerWidth > 768 ? '4px 50px' : '4px 50px',
                 width: window.innerWidth > 768 ? 480 : 250,
@@ -44,7 +44,7 @@ export const SearchMore = (props: any) => {
               id="outlined-name"
               label="Produkt"
               margin="normal"
-              variant="filled"
+              variant="outlined"
               style={{
                 margin: window.innerWidth > 768 ? '4px 50px' : '4px 50px',
                 width: window.innerWidth > 768 ? 480 : 250,
@@ -56,7 +56,7 @@ export const SearchMore = (props: any) => {
               id="outlined-name"
               label="Standort"
               margin="normal"
-              variant="filled"
+              variant="outlined"
               style={{
                 margin: window.innerWidth > 768 ? '4px 50px' : '4px 50px',
                 width: window.innerWidth > 768 ? 480 : 250,
@@ -66,7 +66,7 @@ export const SearchMore = (props: any) => {
               id="outlined-name"
               label="Jahr"
               margin="normal"
-              variant="filled"
+              variant="outlined"
               style={{
                 margin: window.innerWidth > 768 ? '4px 50px' : '4px 50px',
                 width: window.innerWidth > 768 ? 480 : 250,

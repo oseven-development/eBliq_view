@@ -51,7 +51,7 @@ const _notification = (props: any) => {
           vertical: 'top',
           horizontal: 'center',
         }}
-        style={{marginTop: -65, minWidth: 450}}>
+        style={{marginTop: window.innerWidth > 768 ? -65 : 0, minWidth: 450}}>
         <Flex alignItems="center" flexDirection={'column'}>
           <List data={notifications} divider={true} />
           <Button color="primary" size="small" variant="contained" style={{margin: 10}}>
