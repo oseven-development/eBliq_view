@@ -17,6 +17,7 @@ import TextSnippet from './snippets'
 import SnackBar from './snackbar'
 import Paper from './paper'
 import Label from './label'
+import Table from './table'
 export {
   header as Header,
   navigation as Navigation,
@@ -35,4 +36,5 @@ export {
   SnackBar,
   Paper,
   Label,
+  Table,
 }

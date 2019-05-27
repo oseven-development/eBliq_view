@@ -1,29 +1,47 @@
 /** @format */
 
 import React, {Component} from 'react'
-import {Card, Content, Kpi, Chart, MachineVis, SiteNavigation, SiteBox} from '../../components'
-import data from '../../demo/data'
+import {Card, Content, Kpi, Chart, MachineVis, SiteNavigation, SiteBox, Table} from '../../components'
 
-const setFilter = (filter: string) => {
-  console.log(filter)
-}
+const headRows = [
+  {id: 'type', numeric: false, disablePadding: false, label: 'Typ'},
+  {id: 'name', numeric: false, disablePadding: true, label: 'Benachrichtigung'},
+  {id: 'date', numeric: false, disablePadding: false, label: 'Datum'},
+  {id: 'time', numeric: false, disablePadding: false, label: 'Uhrzeit'},
+]
 
-const machine = {
-  machine1: 51,
-  machine2: 71,
-  machine3: 21,
-  machine4: 11,
-}
+const rows = [
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'error', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'warning', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'success', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'warning', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'success', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'error', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'warning', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'warning', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'warning', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'success', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'error', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+  {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
+]
+
 export default class Benachrichtigung extends Component<any, any> {
   render() {
     return (
       <SiteBox>
-        <SiteNavigation data={['Machine1', 'Machine2']} onClick={setFilter} />
         <Content>
-          <Card content={<Kpi title={'Tagesumsatz'} value={'4000€'} growth={16} />} />
-          <Card content={<Chart type={'line'} title={'Stream Machine 2'} value={data} />} />
-          <Card alignItems="center" content={<Chart type={'gauge'} title={'Auslastung Machine 2'} value={data} />} />
-          <Card content={<MachineVis title={'Machine 7'} data={machine} />} width={500} />
+          <Table title={'Benachrichtigungen'} rows={rows} headRows={headRows} />
         </Content>
       </SiteBox>
     )

@@ -16,6 +16,7 @@ export interface IRoute {
   position?: number
   groups: any | string | string[]
   bottomNavigation: boolean
+  siteNav?: boolean
   icon?: JSX.Element
 }
 
@@ -45,6 +46,7 @@ const routes: IRoute[] = [
     displayName: 'Produktion',
     position: 3,
     bottomNavigation: true,
+    siteNav: true,
     icon: <EngineIcon color={'inherit'} />,
   },
 

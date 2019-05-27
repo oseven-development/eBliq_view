@@ -1,13 +1,15 @@
+/** @format */
+
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
+import {makeStyles} from '@material-ui/styles'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
 import NavigationItems from '../../../assets/routes'
 import MenuIcon from '@material-ui/icons/Menu'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import { Drawer } from '../../index'
+import {Drawer} from '../../index'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 
@@ -17,39 +19,39 @@ const useStyles = makeStyles({
     position: 'fixed',
     bottom: 0,
     boxShadow: '0px 1px 3px #121212',
-    zIndex: 10000
-  }
+    zIndex: 10000,
+  },
 })
 
 const desktopStyle = makeStyles({
   root: {
     // backgroundColor: theme.palette.primary.main,
-    boxShadow: '0px 1px 3px #ccc',
+    // boxShadow: '0px 1px 3px #ccc',
     position: 'absolute',
     width: '100vw',
     top: '64px',
-    zIndex: 100
-  }
+    zIndex: 100,
+  },
 })
 const elementStyle = makeStyles({
   root: {
-    padding: '6px 2px 8px'
+    padding: '6px 2px 8px',
   },
   selected: {
-    fontSize: '0.8rem!important'
-  }
+    fontSize: '0.8rem!important',
+  },
 })
 const desktopElementStyle = makeStyles({
   wrapper: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   label: {
     padding: '10px',
-    fontSize: '1rem!important'
+    fontSize: '1rem!important',
   },
   selected: {
-    fontSize: '1rem!important'
-  }
+    fontSize: '1rem!important',
+  },
 })
 
 interface IProps {
@@ -58,7 +60,7 @@ interface IProps {
 }
 
 const _BottomNavigation = (props: IProps) => {
-  const { setTitle, width } = props
+  const {setTitle, width} = props
   const elementStyles = elementStyle()
   const desktopElementStyles = desktopElementStyle()
   const classes = useStyles()
@@ -78,8 +80,8 @@ const _BottomNavigation = (props: IProps) => {
     <BottomNavigation
       value={value}
       // onChange={handleChange}
-      className={width > 800 ? desktopClasses.root : classes.root}
-    >
+      style={{boxShadow: value !== 'Produktion' ? '0px 1px 3px #ccc' : ''}}
+      className={width > 800 ? desktopClasses.root : classes.root}>
       {NavigationItems.map((e: any) => {
         if (e.displayName && e.position && e.position < Limit) {
           return (
@@ -91,7 +93,7 @@ const _BottomNavigation = (props: IProps) => {
               value={e.displayName}
               icon={e.icon}
               key={e.path}
-              style={{ minWidth: 'auto' }}
+              style={{minWidth: 'auto'}}
               classes={width > 800 ? desktopElementStyles : elementStyles}
               showLabel={true}
               onClick={() => {
@@ -127,8 +129,7 @@ const _BottomNavigation = (props: IProps) => {
                         to={e.path}
                         onClick={() => {
                           handleChange(e.displayName)
-                        }}
-                      >
+                        }}>
                         <ListItem>
                           <ListItemIcon>{e.icon}</ListItemIcon>
                           <ListItemText primary={e.displayName} />{' '}
@@ -140,7 +141,7 @@ const _BottomNavigation = (props: IProps) => {
               </List>
             }
             anchor={'bottom'}
-            style={{ marginBottom: 55 }}
+            style={{marginBottom: 55}}
           />
         </React.Fragment>
       ) : (

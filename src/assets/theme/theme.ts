@@ -33,6 +33,7 @@ const defaultTheme = {
 export const lightTheme = createMuiTheme({
   ...defaultTheme,
   palette: {
+    type: 'light',
     primary: {
       main: color.primary,
     },
