@@ -9,13 +9,13 @@ export const getFilteredArray = (
   switch (filterOperator) {
     case '>':
       return arr.filter((e: any) => e[filterProperty] > filterValue)
-    case '>=':
+    case '>==':
       return arr.filter((e: any) => e[filterProperty] >= filterValue)
     case '===':
       return arr.filter((e: any) => e[filterProperty] === filterValue)
     case '<':
       return arr.filter((e: any) => e[filterProperty] < filterValue)
-    case '<=':
+    case '<==':
       return arr.filter((e: any) => e[filterProperty] <= filterValue)
     case '!==':
       return arr.filter((e: any) => e[filterProperty] !== filterValue)

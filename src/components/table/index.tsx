@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 3,
   },
   table: {
-    minWidth: 750,
+    minWidth: window.innerWidth < 768 ? 0 : 750,
   },
   tableWrapper: {
     overflowX: 'auto',
@@ -125,7 +125,7 @@ const _Table = (props: any) => {
                       <TableCell padding="checkbox">
                         <Checkbox checked={isItemSelected} color={'primary'} />
                       </TableCell>
-                      <TableCell>
+                      <TableCell padding="none">
                         {row.type === 'info' ? (
                           <InfoIcon style={{color: color.primary}} />
                         ) : row.type === 'warning' ? (
@@ -140,8 +140,8 @@ const _Table = (props: any) => {
                       <TableCell component="th" scope="row" padding="none">
                         {row.name}
                       </TableCell>
-                      <TableCell>{row.date}</TableCell>
-                      <TableCell>{row.time}</TableCell>
+                      <TableCell padding="none">{row.date}</TableCell>
+                      <TableCell padding="none">{row.time}</TableCell>
                     </TableRow>
                   )
                 })}

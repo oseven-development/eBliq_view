@@ -4,10 +4,10 @@ import React, {Component} from 'react'
 import {Card, Content, Kpi, Chart, MachineVis, SiteNavigation, SiteBox, Table} from '../../components'
 
 const headRows = [
-  {id: 'type', numeric: false, disablePadding: false, label: 'Typ'},
+  {id: 'type', numeric: false, disablePadding: true, label: 'Typ'},
   {id: 'name', numeric: false, disablePadding: true, label: 'Benachrichtigung'},
-  {id: 'date', numeric: false, disablePadding: false, label: 'Datum'},
-  {id: 'time', numeric: false, disablePadding: false, label: 'Uhrzeit'},
+  {id: 'date', numeric: false, disablePadding: true, label: 'Datum'},
+  {id: 'time', numeric: false, disablePadding: true, label: 'Uhrzeit'},
 ]
 
 const rows = [
