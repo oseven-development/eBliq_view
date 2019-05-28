@@ -23,6 +23,7 @@ const styles = {
   input: {
     marginLeft: 8,
     flex: 1,
+    width: '100%',
   },
   iconButton: {
     padding: 10,
@@ -35,8 +36,13 @@ const styles = {
 }
 
 const SearchField = (props: any) => {
-  const {classes, ...rest} = props
+  const {classes, onChange, value} = props
   const [more, setMore] = React.useState(false)
+  const [search, setSearch] = React.useState('')
+
+  const handleChange = (event: any) => {
+    setSearch(event.target.value)
+  }
   return (
     <React.Fragment>
       <Paper
@@ -51,7 +57,27 @@ const SearchField = (props: any) => {
             <SearchIcon />
           </IconButton>
           <Divider className={classes.divider} />
-          <InputBase className={classes.input} placeholder="Suche in deinem Unternehmen" />
+          <form
+            noValidate
+            autoComplete="on"
+            onSubmit={e => {
+              /**
+               * Prevent submit from reloading the page
+               */
+              e.preventDefault()
+              e.stopPropagation()
+              // handleChange(e)
+              onChange(search)
+            }}
+            style={{width: '100%'}}>
+            <InputBase
+              className={classes.input}
+              autoFocus={true}
+              value={search}
+              onChange={handleChange}
+              placeholder="Suche in deinem Unternehmen"
+            />
+          </form>
           <IconButton className={classes.iconButton} aria-label="Search">
             <ArrowForwardIcon />
           </IconButton>

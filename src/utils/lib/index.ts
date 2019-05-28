@@ -12,7 +12,7 @@ export class cArray {
     this.arr = getAttributeArray(this.arr, attribute)
     return this
   }
-  public getFilteredArray(filterProperty: string, filterOperator: string, filterValue: number) {
+  public getFilteredArray(filterProperty: string, filterOperator: string, filterValue: string | number) {
     this.arr = getFilteredArray(this.arr, filterProperty, filterOperator, filterValue)
     return this
   }
