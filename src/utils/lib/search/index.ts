@@ -43,11 +43,6 @@ export const searchBoy = async (phrase: string, arr: any) => {
       return element
     }
   })
-  // console.log(findKPI)
-  // console.log(findYear)
-  // console.log(findCustomer)
-  // console.log(findProduct)
-  // console.log(findMachine)
   switch (findKPI) {
     case 'Umsatz':
       if (findYear) {

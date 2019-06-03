@@ -68,7 +68,6 @@ const _BottomNavigation = (props: IProps) => {
   const [value, setValue] = React.useState('Inbox')
   const [toggle, setToggle] = React.useState(false)
   async function handleChange(newValue: any) {
-    console.log(newValue)
     // if (newValue === 'Mehr') {
     // } else {
     await setValue(newValue)
