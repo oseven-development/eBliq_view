@@ -18,6 +18,8 @@ interface IState {
 }
 // ? Ts wirft sonst Error für promted
 declare const window: any
+const url = 'http://localhost:8000/start'
+const source = new EventSource(url)
 
 // connect to the realtime database stream
 // let eventSource = new EventSource(url)
@@ -63,7 +65,7 @@ const App = () => {
             return (
               <Route
                 path={e.path}
-                component={(props: any) => <Component {...props} setSnack={setSnack} snack={snack} />}
+                component={(props: any) => <Component {...props} setSnack={setSnack} snack={snack} source={source} />}
                 key={e.path}
               />
             )

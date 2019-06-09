@@ -59,6 +59,7 @@ interface IProps {
   width: number
 }
 
+
 const _BottomNavigation = (props: IProps) => {
   const {setTitle, width} = props
   const elementStyles = elementStyle()

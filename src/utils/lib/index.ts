@@ -4,7 +4,7 @@ import {getFilteredArray} from './filter/getFilteredArray'
 import {sum, min, max, avg, dif, pctDif} from './measures/calculations'
 
 export class cArray {
-  private arr: any[]
+  public arr: any[]
   constructor(arr: any[]) {
     this.arr = arr
   }
