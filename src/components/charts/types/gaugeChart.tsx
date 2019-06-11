@@ -6,8 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import {lightTheme as theme} from '../../../assets/theme/theme'
 import {RadialChart} from 'react-vis'
 const gaugeChart = (props: any) => {
-  const {title, size} = props
-  const value = 35
+  const {title, size, value} = props
   const chartValue = [{theta: value / 100, color: theme.palette.primary.main}, {theta: 1 - value / 100, color: '#ccc'}]
 
   return (
@@ -42,7 +41,7 @@ const gaugeChart = (props: any) => {
               padding: '5px',
             }}>
             <Typography variant="h2" color="primary">
-              {value} %
+              {Math.round(value * 100) / 100} %
             </Typography>
           </div>
         </div>

@@ -6,6 +6,8 @@ export const max = (arr: number[]) => Math.max(...arr)
 
 export const sum = (arr: number[]) => arr.reduce((a, b) => a + b, 0)
 
+export const count = (arr: number[]) => arr.length
+
 export const avg = (arr: number[]) => arr.reduce((a, b) => a + b, 0) / arr.length
 
 export const dif = (arr: number[] | any) => {
@@ -15,3 +17,5 @@ export const dif = (arr: number[] | any) => {
 }
 
 export const pctDif = (arr: number[] | any) => dif(arr) * 100
+
+export const latest = (arr: number[] | any) => arr[arr.length - 1]

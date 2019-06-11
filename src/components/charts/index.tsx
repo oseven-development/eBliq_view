@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react'
 import LineChart from './types/lineChart'
 import VerticalBarChart from './types/verticalBarChart'
@@ -9,36 +11,38 @@ interface IChartData {
 }
 
 interface ICharts {
-  type: 'line' | 'verticalBar' | 'gauge'
+  type: 'line' | 'bar' | 'gauge'
   title: string
-  value: IChartData[] | IChartData[][]
-  xAxis?: number[]
-  yAxis?: number[]
+  value: IChartData[] | IChartData[][] | number
+  xAxis?: boolean
+  yAxis?: boolean
   curve?: true
   xTickTotal?: number
   yTickTotal?: number
   stacked?: true
+  xType?: string
 }
 
 const _Chart: React.FC<ICharts> = (props: ICharts) => {
-  const { type, title, value, xAxis, yAxis, stacked } = props
+  const {type, title, value, xAxis, yAxis, stacked, curve, xTickTotal, yTickTotal, xType} = props
   switch (type) {
     case 'line':
       return (
-        <LineChart title={title} value={value} xAxis={xAxis} yAxis={yAxis} />
-      )
-    case 'verticalBar':
-      return (
-        <VerticalBarChart
+        <LineChart
           title={title}
           value={value}
           xAxis={xAxis}
           yAxis={yAxis}
-          stacked={stacked}
+          xTickTotal={xTickTotal}
+          yTickTotal={yTickTotal}
+          curve={curve}
+          xType={xType}
         />
       )
+    case 'bar':
+      return <VerticalBarChart title={title} value={value} xAxis={xAxis} yAxis={yAxis} stacked={stacked} />
     case 'gauge':
-      return <GaugeChart valeue={value} title={title} />
+      return <GaugeChart value={value} title={title} />
     default:
       return <div />
   }

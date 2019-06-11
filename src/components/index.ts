@@ -18,6 +18,7 @@ import SnackBar from './snackbar'
 import Paper from './paper'
 import Label from './label'
 import Table from './table'
+import ControlLamp from './visualization/controlVis/controlLamp'
 export {
   header as Header,
   navigation as Navigation,
@@ -37,4 +38,5 @@ export {
   Paper,
   Label,
   Table,
+  ControlLamp,
 }

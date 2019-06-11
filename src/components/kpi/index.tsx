@@ -9,7 +9,7 @@ import {Label} from '../index'
 import {color} from '../../assets/theme/color'
 import {formatCurrency} from '../../assets/formats/currency'
 const Kpi = (props: any) => {
-  const {title, value, growth, displayGrowth, type} = props
+  const {title, value, growth, type} = props
   return (
     <React.Fragment>
       <Box>
@@ -21,10 +21,7 @@ const Kpi = (props: any) => {
           {type === 'percent' ? ' %' : type === 'currency' ? ' €' : ''}
         </Typography>
       </Box>
-
-      {displayGrowth === false ? (
-        ''
-      ) : (
+      {growth ? (
         <Box>
           <Typography variant="subtitle1" color="inherit">
             <Flex
@@ -38,6 +35,8 @@ const Kpi = (props: any) => {
             </Flex>
           </Typography>
         </Box>
+      ) : (
+        ''
       )}
     </React.Fragment>
   )

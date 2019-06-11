@@ -1,7 +1,7 @@
 /** @format */
 
-import {avg, sum, max, min, pctDif, dif} from '../../utils/lib/measures/calculations'
-import {getAttributeArray} from '../../utils/lib/filter/getAttributeArray'
+import {avg, sum, max, min, pctDif, dif, latest, count} from '../../utils/lib/measures/calculations'
+import {getAttributeArray, getAttributeArrayTest} from '../../utils/lib/filter/getAttributeArray'
 import {getFilteredArray} from '../../utils/lib/filter/getFilteredArray'
 
 /** @format */
@@ -18,6 +18,7 @@ export class machineTemplate {
     this.data = data.arr
   }
   public sum(property: string) {
+    // console.log(getAttributeArray(this.data, property))
     return sum(getAttributeArray(this.data, property))
   }
   public avg(property: string) {
@@ -34,5 +35,11 @@ export class machineTemplate {
   }
   public pctDif(property: string) {
     return pctDif(getAttributeArray(this.data, property))
+  }
+  public latest(property: string) {
+    return latest(getAttributeArray(this.data, property))
+  }
+  public count(property: string) {
+    return count(getAttributeArray(this.data, property))
   }
 }
