@@ -12,7 +12,7 @@ const Kpi = (props: any) => {
   const {title, value, growth, type} = props
   return (
     <React.Fragment>
-      <Box>
+      <Box style={{maxWidth: 350}}>
         <Label title={title} color={'primary'} />
       </Box>
       <Box mt={'10px'} mb={'20px'}>

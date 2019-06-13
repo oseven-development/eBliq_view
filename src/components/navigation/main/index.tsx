@@ -59,14 +59,13 @@ interface IProps {
   width: number
 }
 
-
 const _BottomNavigation = (props: IProps) => {
   const {setTitle, width} = props
   const elementStyles = elementStyle()
   const desktopElementStyles = desktopElementStyle()
   const classes = useStyles()
   const desktopClasses = desktopStyle()
-  const [value, setValue] = React.useState('Inbox')
+  const [value, setValue] = React.useState('Suche')
   const [toggle, setToggle] = React.useState(false)
   async function handleChange(newValue: any) {
     // if (newValue === 'Mehr') {
