@@ -1,0 +1,266 @@
+{
+  "data": [
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:48:56.125Z",
+      "levelOfUse": 27.32,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:48:58.130Z",
+      "levelOfUse": 51.49,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:48:58.130Z",
+      "levelOfUse": 22.32,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:00.136Z",
+      "levelOfUse": 46.49,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:00.136Z",
+      "levelOfUse": 31.59,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:02.140Z",
+      "levelOfUse": 41.49,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:02.140Z",
+      "levelOfUse": 39.63,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:04.144Z",
+      "levelOfUse": 36.49,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:04.144Z",
+      "levelOfUse": 30.64,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:06.149Z",
+      "levelOfUse": 31.490000000000002,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:06.149Z",
+      "levelOfUse": 25.64,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:08.148Z",
+      "levelOfUse": 26.490000000000002,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:08.149Z",
+      "levelOfUse": 20.64,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:10.151Z",
+      "levelOfUse": 21.490000000000002,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:10.151Z",
+      "levelOfUse": 15.64,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:12.152Z",
+      "levelOfUse": 29.46,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:12.152Z",
+      "levelOfUse": 20.64,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:14.156Z",
+      "levelOfUse": 24.46,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:14.156Z",
+      "levelOfUse": 25.64,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:16.161Z",
+      "levelOfUse": 29.46,
+      "wearOfTheMachine": 97,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": true
+    },
+    ,
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:16.161Z",
+      "levelOfUse": 17.62,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": true
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:18.164Z",
+      "levelOfUse": 24.46,
+      "wearOfTheMachine": 97,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:18.165Z",
+      "levelOfUse": 12.620000000000001,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:20.169Z",
+      "levelOfUse": 19.46,
+      "wearOfTheMachine": 97,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:20.170Z",
+      "levelOfUse": 17.62,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:22.171Z",
+      "levelOfUse": 14.46,
+      "wearOfTheMachine": 97,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:22.171Z",
+      "levelOfUse": 22.62,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-123",
+      "name": "Druck",
+      "date": "2019-06-26T16:49:24.173Z",
+      "levelOfUse": 22.41,
+      "wearOfTheMachine": 97,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    },
+    {
+      "id": "id-456",
+      "name": "Pack",
+      "date": "2019-06-26T16:49:24.173Z",
+      "levelOfUse": 27.62,
+      "wearOfTheMachine": 100,
+      "fault": {"isFault": false, "ticksToRemain": 10, "currenTick": 0},
+      "idleMode": false
+    }
+  ]
+}

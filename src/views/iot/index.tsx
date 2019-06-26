@@ -93,17 +93,7 @@ class IotView extends React.Component<any, any> {
               }
               footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
             />
-            <Card
-              content={
-                <Kpi
-                  title={'Durchschnittlicher Level of Use von Versand'}
-                  value={machine3.avg('levelOfUse')}
-                  growth={machine3.pctDif('levelOfUse')}
-                  type={'percent'}
-                />
-              }
-              footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
-            />
+
             <Card
               content={
                 createChartData(machine1.data, 'date', 'levelOfUse').length > 1 ? (
@@ -131,7 +121,7 @@ class IotView extends React.Component<any, any> {
             <Card
               content={
                 <Kpi
-                  title={'Durchschnittlicher Level of Use'}
+                  title={'Durchschnittlicher Auslastung'}
                   value={machine.avg('levelOfUse')}
                   growth={machine.pctDif('levelOfUse')}
                   type={'percent'}
@@ -139,19 +129,15 @@ class IotView extends React.Component<any, any> {
               }
               footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
             />
-            <Card content={<ControlLamp title={'Idle Mode'} value={machine.latest('idleMode')} />} />
-            <Card
-              alignItems="center"
-              content={
-                <Chart type={'gauge'} title={'Zustand der Maschine'} value={machine.latest('wearOfTheMachine')} />
-              }
-            />
+            <Card content={<ControlLamp title={'Standby'} value={machine.latest('idleMode')} />} />
+            <Card content={<ControlLamp title={'Wartung notwendig'} value={machine.latest('fault.isFault')} />} />
+
             <Card
               content={
                 createChartData(machine.data, 'date', 'levelOfUse').length > 1 ? (
                   <Chart
                     type={'line'}
-                    title={'Level of Use in %'}
+                    title={'Auslastung in %'}
                     value={createChartData(machine.data, 'date', 'levelOfUse', 10)}
                     // yTickTotal={5}
                     // xAxis={true}
@@ -164,16 +150,34 @@ class IotView extends React.Component<any, any> {
               }
             />
             <Card
+              alignItems="center"
+              content={
+                <Chart type={'gauge'} title={'Zustand der Maschine'} value={machine.latest('wearOfTheMachine')} />
+              }
+            />
+            <Card
               content={
                 <Kpi
-                  title={'Summe von Trips'}
-                  value={machine.count('manufacturedComponent.currentTrip')}
+                  title={'verbleibende Dauer der Wartung'}
+                  value={
+                    machine.latest('fault.currenTick') !== 0
+                      ? machine.latest('fault.ticksToRemain') - machine.latest('fault.currenTick')
+                      : 0
+                  }
                   type={'absolute'}
                 />
               }
               footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
             />
 
+            <Card
+              content={<Kpi title={'aktuelle Auslastung'} value={machine.latest('levelOfUse')} type={'percent'} />}
+              footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
+            />
+            <Card
+              content={<Kpi title={'erwarteter Output'} value={machine.latest('levelOfUse')} type={'percent'} />}
+              footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
+            />
             {/* <Card content={<MachineVis title={'Machine 7'} data={machine} />} width={500} /> */}
           </Content>
         )}

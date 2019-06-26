@@ -18,8 +18,8 @@ interface IState {
 }
 // ? Ts wirft sonst Error für promted
 declare const window: any
-// const url = 'http://localhost:8000/start'
-const url = 'https://11852507.ngrok.io/start'
+const url = 'http://localhost:8080/connect'
+// const url = 'https://11852507.ngrok.io/start'
 const source = new EventSource(url)
 
 // connect to the realtime database stream
