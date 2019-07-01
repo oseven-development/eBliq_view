@@ -9,7 +9,7 @@ import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 
 export const _Tablehead = (props: any) => {
-  const {onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, headRows} = props
+  const {onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, headRows, checkbox} = props
   const createSortHandler = (property: any) => (event: any) => {
     onRequestSort(event, property)
   }
@@ -17,14 +17,19 @@ export const _Tablehead = (props: any) => {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
-          <Checkbox
-            color={'primary'}
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={numSelected === rowCount}
-            onChange={onSelectAllClick}
-          />
-        </TableCell>
+        {checkbox ? (
+          <TableCell padding="checkbox">
+            <Checkbox
+              color={'primary'}
+              indeterminate={numSelected > 0 && numSelected < rowCount}
+              checked={numSelected === rowCount}
+              onChange={onSelectAllClick}
+            />
+          </TableCell>
+        ) : (
+          ''
+        )}
+
         {headRows.map((row: any) => (
           <TableCell
             key={row.id}

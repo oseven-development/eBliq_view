@@ -4,6 +4,7 @@ import header from './header'
 import navigation from './navigation/main'
 import SiteNavigation from './navigation/side'
 import Card from './card'
+import SalesOrderCard from './card/salesOrderCard'
 import Content from './content'
 import SiteBox from './content/siteBox'
 import Kpi from './kpi'
@@ -19,6 +20,7 @@ import Paper from './paper'
 import Label from './label'
 import Table from './table'
 import ControlLamp from './visualization/controlVis/controlLamp'
+import SalesTable from './table/salesTable/index'
 export {
   header as Header,
   navigation as Navigation,
@@ -26,6 +28,7 @@ export {
   Content,
   Kpi,
   _Chart as Chart,
+  SalesTable,
   NotificationBar,
   MachineVis,
   List,
@@ -39,4 +42,5 @@ export {
   Label,
   Table,
   ControlLamp,
+  SalesOrderCard,
 }

@@ -106,6 +106,7 @@ const _Table = (props: any) => {
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
               rowCount={rows.length}
+              checkbox={props.checkbox}
             />
             <TableBody>
               {stableSort(rows, getSorting(order, orderBy))

@@ -41,7 +41,7 @@ export default class Benachrichtigung extends Component<any, any> {
     return (
       <SiteBox>
         <Content>
-          <Table title={'Benachrichtigungen'} rows={rows} headRows={headRows} />
+          <Table title={'Benachrichtigungen'} rows={rows} headRows={headRows} checkbox={true} />
         </Content>
       </SiteBox>
     )

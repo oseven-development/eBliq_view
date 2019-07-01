@@ -12,13 +12,13 @@ const Kpi = (props: any) => {
   const {title, value, growth, type} = props
   return (
     <React.Fragment>
-      <Box style={{maxWidth: 350}}>
+      <Box style={{maxWidth: 280}}>
         <Label title={title} color={'primary'} />
       </Box>
       <Box mt={'10px'} mb={'20px'}>
         <Typography variant="h3" color="inherit">
           {formatCurrency(value)}
-          {type === 'percent' ? ' %' : type === 'currency' ? ' €' :  type === 'temperature' ? ' °C' : ''}
+          {type === 'percent' ? ' %' : type === 'currency' ? ' €' : type === 'temperature' ? ' °C' : ''}
         </Typography>
       </Box>
       {growth ? (

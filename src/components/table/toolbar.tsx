@@ -13,7 +13,7 @@ import {lightTheme as theme} from '../../assets/theme/theme'
 import {Divider} from '@material-ui/core'
 const useToolbarStyles = makeStyles(() => ({
   root: {
-    paddingLeft: 30,
+    paddingLeft: 0,
     paddingRight: 2,
   },
   highlight:
@@ -53,7 +53,7 @@ export const TableToolbar = (props: any) => {
               {numSelected} ausgewählt
             </Typography>
           ) : (
-            <Typography variant="h2" id="tableTitle">
+            <Typography variant="h2" id="tableTitle" color="primary">
               {title}
             </Typography>
           )}
