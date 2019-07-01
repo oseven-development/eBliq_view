@@ -1,7 +1,7 @@
 /** @format */
 
-import React, {Component} from 'react'
-import {Card, Content, Kpi, Chart, SiteBox, SalesTable, TextSnippet, SalesOrderCard} from '../../components'
+import React from 'react'
+import {Card, Content, Kpi, HalfContent, SiteBox, SalesTable, TextSnippet, SalesOrderCard} from '../../components'
 
 import {sum, pctDif, latest} from '../../utils/lib/measures/calculations'
 import {getAttributeArray} from '../../utils/lib/filter/getAttributeArray'
@@ -28,7 +28,7 @@ export default class Sales extends React.Component<any, any> {
     if (order) {
       return {
         customer: order.company.companyname,
-        revenue: sum(getAttributeArray(order.products, 'revenue')),
+        revenue: sum(getAttributeArray(order.products, 'price')),
         quantity: sum(getAttributeArray(order.products, 'quantity')),
       }
     } else {
@@ -42,32 +42,36 @@ export default class Sales extends React.Component<any, any> {
     const orderHead = this.orderHead(latest(data))
     return (
       <SiteBox>
-        <Content>
-          {orderHead ? <SalesOrderCard title={'letzter Auftrag'} orderHead={orderHead} /> : ''}
-          <Card
-            content={
-              <Kpi
-                title={`Gesamtumsatz`}
-                value={sum(getAttributeArray(products, 'revenue'))}
-                growth={pctDif(getAttributeArray(products, 'revenue'))}
-                type={'currency'}
+        <HalfContent
+          component1={
+            <React.Fragment>
+              <HalfContent
+                component1={
+                  <Card
+                    content={
+                      <Kpi
+                        title={`verkaufte Menge`}
+                        value={sum(getAttributeArray(products, 'quantity'))}
+                        type={'absolute'}
+                      />
+                    }
+                    footContent={<TextSnippet text={'SalesForce'} icon={<TagIcon fontSize={'small'} />} />}
+                  />
+                }
+                component2={
+                  <Card
+                    content={
+                      <Kpi title={`Gesamtumsatz`} value={sum(getAttributeArray(products, 'price'))} type={'currency'} />
+                    }
+                    footContent={<TextSnippet text={'SalesForce'} icon={<TagIcon fontSize={'small'} />} />}
+                  />
+                }
               />
-            }
-            footContent={<TextSnippet text={'SalesForce'} icon={<TagIcon fontSize={'small'} />} />}
-          />
-          <Card
-            content={
-              <Kpi
-                title={`verkaufte Menge`}
-                value={sum(getAttributeArray(products, 'quantity'))}
-                growth={pctDif(getAttributeArray(products, 'quantity'))}
-                type={'absolute'}
-              />
-            }
-            footContent={<TextSnippet text={'SalesForce'} icon={<TagIcon fontSize={'small'} />} />}
-          />
-          <Card content={<SalesTable title={'Verkaufte Produkte '} products={products} />} />
-        </Content>
+              {orderHead ? <SalesOrderCard title={'letzter Auftrag'} orderHead={orderHead} /> : ''}
+            </React.Fragment>
+          }
+          component2={<Card content={<SalesTable title={'Verkaufte Produkte '} products={products} />} />}
+        />
       </SiteBox>
     )
   }

@@ -6,6 +6,7 @@ import SiteNavigation from './navigation/side'
 import Card from './card'
 import SalesOrderCard from './card/salesOrderCard'
 import Content from './content'
+import HalfContent from './content/halfContent'
 import SiteBox from './content/siteBox'
 import Kpi from './kpi'
 import _Chart from './charts'
@@ -43,4 +44,5 @@ export {
   Table,
   ControlLamp,
   SalesOrderCard,
+  HalfContent,
 }

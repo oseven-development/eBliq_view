@@ -8,17 +8,18 @@ import {Label} from '..'
 import PeopleIcon from '@material-ui/icons/People'
 import MoneyIcon from '@material-ui/icons/AttachMoney'
 import {QuantityIcon} from '../icons'
+import {formatCurrency} from '../../assets/formats/currency'
 
 const styles = {
   card: {
     minWidth: 250,
-    minHeigt: 150,
     borderRadius: 10,
     padding: 5,
   },
 }
 const SalesOrderCard = (props: any) => {
   const {classes, title, orderHead, alignItems, justifyContent, width, footContent, transform} = props
+
   return (
     <Box mx={10} my={window.innerWidth < 768 ? 2 : 20} width={window.innerWidth < 768 ? 1 : ''}>
       <Card
@@ -35,7 +36,7 @@ const SalesOrderCard = (props: any) => {
         <Box>
           <Label title={title} color={'primary'} />
         </Box>
-        <Box>
+        <Box py={'20px'}>
           <Flex justifyContent={'center'} alignItems={'center'}>
             <Box pr={'3px'}>
               <PeopleIcon />
@@ -44,11 +45,11 @@ const SalesOrderCard = (props: any) => {
             <Box pl={'10px'} pr={'3px'}>
               <MoneyIcon />
             </Box>
-            <Box pr={'10px'}>{orderHead.revenue} € </Box>
+            <Box pr={'10px'}>{formatCurrency(orderHead.revenue)}€ </Box>
             <Box pl={'10px'} pr={'3px'}>
               <QuantityIcon />
             </Box>
-            <Box pr={'10px'}>{orderHead.quantity} Stk.</Box>
+            <Box pr={'10px'}>{orderHead.quantity}Stk.</Box>
           </Flex>
         </Box>
       </Card>
