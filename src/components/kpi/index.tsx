@@ -18,7 +18,7 @@ const Kpi = (props: any) => {
       <Box mt={'10px'} mb={'20px'}>
         <Typography variant="h3" color="inherit">
           {formatCurrency(value)}
-          {type === 'percent' ? ' %' : type === 'currency' ? ' €' : ''}
+          {type === 'percent' ? ' %' : type === 'currency' ? ' €' :  type === 'temperature' ? ' °C' : ''}
         </Typography>
       </Box>
       {growth ? (

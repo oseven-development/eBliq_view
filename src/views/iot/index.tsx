@@ -74,8 +74,8 @@ class IotView extends React.Component<any, any> {
             <Card
               content={
                 <Kpi
-                  title={`Durchschnittlicher Level of Use von Druck`}
-                  value={machine1.avg('levelOfUse')}
+                  title={`Auslastung Druck`}
+                  value={machine1.latest('levelOfUse')}
                   growth={machine1.pctDif('levelOfUse')}
                   type={'percent'}
                 />
@@ -85,13 +85,32 @@ class IotView extends React.Component<any, any> {
             <Card
               content={
                 <Kpi
-                  title={'Durchschnittlicher Level of Use von Pack'}
-                  value={machine2.avg('levelOfUse')}
+                  title={'Auslastung Pack'}
+                  value={machine2.latest('levelOfUse')}
                   growth={machine2.pctDif('levelOfUse')}
                   type={'percent'}
                 />
               }
               footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
+            />
+            <Card
+              content={
+                <Kpi
+                  title={'Auslastung Versand'}
+                  value={machine3.latest('levelOfUse')}
+                  growth={machine3.pctDif('levelOfUse')}
+                  type={'percent'}
+                />
+              }
+              footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
+            />
+
+            <Card
+              content={<ControlLamp title={'Druck Wartung notwendig'} value={machine1.latest('fault.isFault')} />}
+            />
+            <Card content={<ControlLamp title={'Pack Wartung notwendig'} value={machine2.latest('fault.isFault')} />} />
+            <Card
+              content={<ControlLamp title={'Versand Wartung notwendig'} value={machine3.latest('fault.isFault')} />}
             />
 
             <Card
@@ -121,17 +140,31 @@ class IotView extends React.Component<any, any> {
             <Card
               content={
                 <Kpi
-                  title={'Durchschnittlicher Auslastung'}
-                  value={machine.avg('levelOfUse')}
+                  title={'aktuelle Auslastung'}
+                  value={machine.latest('levelOfUse')}
                   growth={machine.pctDif('levelOfUse')}
                   type={'percent'}
                 />
               }
+              footContent={<TextSnippet text={'SIEMENS ACR'} icon={<TagIcon fontSize={'small'} />} />}
+            />
+            <Card
+              content={
+                <Kpi
+                  title={'Temperatur'}
+                  value={machine.latest('temperature')}
+                  type={'temperature'}
+                  growth={machine.pctDif('temperature')}
+                />
+              }
+              footContent={<TextSnippet text={'Raspberry PI Werk 2'} icon={<TagIcon fontSize={'small'} />} />}
+            />
+            <Card
+              content={
+                <Kpi title={'erstelle Komponenten'} value={machine.sum('manufacturedParts.TeilA')} type={'absolute'} />
+              }
               footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
             />
-            <Card content={<ControlLamp title={'Standby'} value={machine.latest('idleMode')} />} />
-            <Card content={<ControlLamp title={'Wartung notwendig'} value={machine.latest('fault.isFault')} />} />
-
             <Card
               content={
                 createChartData(machine.data, 'date', 'levelOfUse').length > 1 ? (
@@ -155,29 +188,7 @@ class IotView extends React.Component<any, any> {
                 <Chart type={'gauge'} title={'Zustand der Maschine'} value={machine.latest('wearOfTheMachine')} />
               }
             />
-            <Card
-              content={
-                <Kpi
-                  title={'verbleibende Dauer der Wartung'}
-                  value={
-                    machine.latest('fault.currenTick') !== 0
-                      ? machine.latest('fault.ticksToRemain') - machine.latest('fault.currenTick')
-                      : 0
-                  }
-                  type={'absolute'}
-                />
-              }
-              footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
-            />
 
-            <Card
-              content={<Kpi title={'aktuelle Auslastung'} value={machine.latest('levelOfUse')} type={'percent'} />}
-              footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
-            />
-            <Card
-              content={<Kpi title={'erwarteter Output'} value={machine.latest('levelOfUse')} type={'percent'} />}
-              footContent={<TextSnippet text={'SAP ERP3'} icon={<TagIcon fontSize={'small'} />} />}
-            />
             {/* <Card content={<MachineVis title={'Machine 7'} data={machine} />} width={500} /> */}
           </Content>
         )}
