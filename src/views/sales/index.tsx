@@ -66,7 +66,6 @@ export default class Sales extends React.Component<any, any> {
 
   render() {
     const {products, data} = this.state
-    // console.log(data)
     const customerRevenue = createChartData(
       sortArray(this.calculateCustomerRevenue(), 'revenue'),
       'companyname',
@@ -121,7 +120,17 @@ export default class Sales extends React.Component<any, any> {
               />
             </React.Fragment>
           }
-          component2={<Card content={<SalesTable title={'Verkaufte Produkte '} products={products} />} />}
+          component2={
+            <Card
+              content={
+                this.state.products.length > 1 ? (
+                  <SalesTable title={'Verkaufte Produkte '} products={products} />
+                ) : (
+                  <div />
+                )
+              }
+            />
+          }
         />
       </SiteBox>
     )

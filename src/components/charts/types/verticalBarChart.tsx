@@ -8,7 +8,6 @@ import {lightTheme as theme} from '../../../assets/theme/theme'
 
 const VerticalBarChart = (props: any) => {
   const {title, value, xAxis, yAxis, curve, xTickTotal, yTickTotal, stacked} = props
-  console.log(value)
   return (
     <React.Fragment>
       <Box>
