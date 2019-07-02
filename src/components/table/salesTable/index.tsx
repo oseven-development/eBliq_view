@@ -112,11 +112,11 @@ const SalesTable = (props: any) => {
                           {row.name}
                         </TableCell>
                         <TableCell align="right">{row.quantity}</TableCell>
-                        <TableCell align="right"> {formatCurrency(row.revenue)}€ </TableCell>
+                        <TableCell align="right">{formatCurrency(row.revenue)}€</TableCell>
                       </TableRow>
                     )
                   })
-              : ''}
+              : null}
             {emptyRows > 0 && (
               <TableRow style={{height: 49 * emptyRows}}>
                 <TableCell colSpan={6} />

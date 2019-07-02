@@ -26,10 +26,7 @@ export const _Tablehead = (props: any) => {
               onChange={onSelectAllClick}
             />
           </TableCell>
-        ) : (
-          ''
-        )}
-
+        ) : null}
         {headRows.map((row: any) => (
           <TableCell
             key={row.id}
