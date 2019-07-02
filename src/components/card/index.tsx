@@ -17,7 +17,7 @@ const styles = {
 const _Card = (props: any) => {
   const {classes, content, my, mx, alignItems, justifyContent, width, footContent, transform} = props
   return (
-    <Box mx={mx ? mx : 10} my={window.innerWidth < 768 ? 2 : my ? my : 20} width={window.innerWidth < 768 ? 1 : ''}>
+    <Box mx={mx ? mx : 10} my={window.innerWidth < 768 ? 2 : my ? my : 20}>
       <Card
         className={classes.card}
         style={{

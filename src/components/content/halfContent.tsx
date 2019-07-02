@@ -6,7 +6,7 @@ import {Flex, Box} from 'rebass'
 
 const HalfContent = (props: any) => {
   const {component1, component2, justifyContent, alignItems, margin} = props
-  const width = window.innerWidth < 768 ? 1 : 1 / 2
+  const width = window.innerWidth < 768 ? window.innerWidth - 10 : 1 / 2
   return (
     <Flex
       flexWrap="wrap"
@@ -16,7 +16,7 @@ const HalfContent = (props: any) => {
       }}
       justifyContent={justifyContent ? justifyContent : 'center'}
       alignItems={alignItems ? alignItems : 'flex-start'}>
-      <Box width={width}>{component1}</Box>
+      <Box width={width}>{component1} </Box>
       <Box width={width}>{component2}</Box>
     </Flex>
   )

@@ -21,7 +21,7 @@ const SalesOrderCard = (props: any) => {
   const {classes, title, orderHead, alignItems, justifyContent, width, footContent, transform} = props
 
   return (
-    <Box mx={10} my={window.innerWidth < 768 ? 2 : 20} width={window.innerWidth < 768 ? 1 : ''}>
+    <Box mx={10} my={window.innerWidth < 768 ? 2 : 20}>
       <Card
         className={classes.card}
         style={{

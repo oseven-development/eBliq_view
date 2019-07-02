@@ -19,7 +19,7 @@ import {makeStyles} from '@material-ui/styles'
 import {stableSort, getSorting} from '../sortTable'
 import {_Tablehead} from '../tableHead'
 import {formatCurrency} from '../../../assets/formats/currency'
-import {groupBy} from '../../../utils/lib/destructure/distinctOA'
+import {groupBy} from '../../../utils/lib/distinctOA'
 import {sum} from '../../../utils/lib/measures/calculations'
 import {getAttributeArray} from '../../../utils/lib/filter/getAttributeArray'
 import {TableToolbar} from '../toolbar'
@@ -112,7 +112,7 @@ const SalesTable = (props: any) => {
                           {row.name}
                         </TableCell>
                         <TableCell align="right">{row.quantity}</TableCell>
-                        <TableCell align="right"> {formatCurrency(row.revenue)} € </TableCell>
+                        <TableCell align="right"> {formatCurrency(row.revenue)}€ </TableCell>
                       </TableRow>
                     )
                   })

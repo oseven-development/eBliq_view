@@ -1,11 +1,23 @@
 /** @format */
 
 import React from 'react'
-import {Card, Content, Kpi, HalfContent, SiteBox, SalesTable, TextSnippet, SalesOrderCard} from '../../components'
+import {
+  Card,
+  Content,
+  Kpi,
+  HalfContent,
+  SiteBox,
+  SalesTable,
+  TextSnippet,
+  SalesOrderCard,
+  Chart,
+} from '../../components'
 
 import {sum, pctDif, latest} from '../../utils/lib/measures/calculations'
 import {getAttributeArray} from '../../utils/lib/filter/getAttributeArray'
 import {TagIcon} from '../../components/icons'
+import {createChartData} from '../../utils/lib/createChartdata'
+import {sortArray} from '../../utils/lib/sortArray'
 
 export default class Sales extends React.Component<any, any> {
   constructor(props: any) {
@@ -13,6 +25,7 @@ export default class Sales extends React.Component<any, any> {
     this.state = {
       data: [],
       products: [],
+      customer: {},
     }
     this.props.source.addEventListener('order', (e: any) => {
       this.update(e)
@@ -35,10 +48,32 @@ export default class Sales extends React.Component<any, any> {
       return undefined
     }
   }
+  calculateCustomerRevenue = () => {
+    return this.state.data
+      .map((order: any) => {
+        const revenue = sum(getAttributeArray(order.products, 'price'))
+        return {companyname: order.company.companyname, revenue}
+      })
+      .reduce(
+        (map => (r: any, a: any) => {
+          map.set(a.companyname, map.get(a.companyname) || r[r.push({companyname: a.companyname, revenue: 0}) - 1])
+          map.get(a.companyname).revenue += a.revenue
+          return r
+        })(new Map()),
+        [],
+      )
+  }
 
   render() {
     const {products, data} = this.state
-
+    // console.log(data)
+    const customerRevenue = createChartData(
+      sortArray(this.calculateCustomerRevenue(), 'revenue'),
+      'companyname',
+      'revenue',
+      10,
+      'begin',
+    )
     const orderHead = this.orderHead(latest(data))
     return (
       <SiteBox>
@@ -55,7 +90,7 @@ export default class Sales extends React.Component<any, any> {
                         type={'absolute'}
                       />
                     }
-                    footContent={<TextSnippet text={'SalesForce'} icon={<TagIcon fontSize={'small'} />} />}
+                    footContent={<TextSnippet text={'Shopify'} icon={<TagIcon fontSize={'small'} />} />}
                   />
                 }
                 component2={
@@ -63,11 +98,27 @@ export default class Sales extends React.Component<any, any> {
                     content={
                       <Kpi title={`Gesamtumsatz`} value={sum(getAttributeArray(products, 'price'))} type={'currency'} />
                     }
-                    footContent={<TextSnippet text={'SalesForce'} icon={<TagIcon fontSize={'small'} />} />}
+                    footContent={<TextSnippet text={'Shopify'} icon={<TagIcon fontSize={'small'} />} />}
                   />
                 }
               />
               {orderHead ? <SalesOrderCard title={'letzter Auftrag'} orderHead={orderHead} /> : ''}
+              <Card
+                content={
+                  customerRevenue.length > 1 ? (
+                    <Chart
+                      type={'bar'}
+                      title={'Top 10 Kunden nach Umsatz'}
+                      value={customerRevenue}
+                      // yTickTotal={5}
+                      // xAxis={true}
+                      // yType={'percent'}
+                    />
+                  ) : (
+                    ''
+                  )
+                }
+              />
             </React.Fragment>
           }
           component2={<Card content={<SalesTable title={'Verkaufte Produkte '} products={products} />} />}

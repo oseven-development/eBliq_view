@@ -18,7 +18,7 @@ import {useEventsource} from '../../assets/hooks'
 import {notification} from '../../utils/notification'
 import {cArray} from '../../utils/lib'
 import {machineTemplate} from '../../assets/entities/machine'
-import {createChartData} from '../../utils/lib/filter/createChartdata'
+import {createChartData} from '../../utils/lib/createChartdata'
 // import * as flatten from 'flat'
 var flatten = require('flat')
 

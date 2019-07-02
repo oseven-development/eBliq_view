@@ -1,6 +1,12 @@
 /** @format */
 
-export const createChartData = (arr: any, xProperty: string, yProperty: string, length?: number) => {
+export const createChartData = (
+  arr: any,
+  xProperty: string,
+  yProperty: string,
+  length?: number,
+  direction?: string,
+) => {
   const newArr: any = []
   var options = {hour: 'numeric', minute: 'numeric', second: 'numeric'}
   let i = 0
@@ -17,5 +23,9 @@ export const createChartData = (arr: any, xProperty: string, yProperty: string, 
           newArr.push({x: e[xProperty], y: e[yProperty]})
     }
   })
-  return length && newArr.length >= length ? newArr.slice(newArr.length - length, newArr.length) : newArr
+  return length && newArr.length >= length
+    ? direction === 'begin'
+      ? newArr.slice(0, length)
+      : newArr.slice(newArr.length - length, newArr.length)
+    : newArr
 }
