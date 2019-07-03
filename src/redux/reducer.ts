@@ -4,6 +4,7 @@ import {Reducer} from 'redux'
 import {sum} from '../utils/lib/measures/calculations'
 import {getAttributeArray} from '../utils/lib/filter/getAttributeArray'
 import {sortArray} from '../utils/lib/sortArray'
+import {groupBy} from '../utils/lib/distinctOA'
 var flatten = require('flat')
 
 const initialMachineState: any = {
@@ -35,9 +36,10 @@ export const orderReducer: Reducer<any, any> = (state = initialOrderState, actio
     case 'ADDO': {
       const data = [...state.orderData, JSON.parse(action.payload)].flat()
       const revenue = calculateCustomerRevenue(data)
+      const products = data.map((e: any) => e.products).flat()
       return {
         orderData: data,
-        products: data.map((e: any) => e.products).flat(),
+        products: products,
         revenue: sortArray(revenue, 'revenue'),
       }
     }

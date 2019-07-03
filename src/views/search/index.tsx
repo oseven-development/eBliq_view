@@ -1,23 +1,27 @@
 /** @format */
 
-import React, {Component} from 'react'
-import {Content, SearchField, SiteBox, Card, Kpi} from '../../components'
+import React from 'react'
+import {Content, SearchField, SiteBox, Card, Kpi, SalesOrderCard, Paper} from '../../components'
 import {searchBoy} from '../../utils/lib/search/index'
-import data from '../../demo/search'
-import {cArray} from '../../utils/lib'
-
+import searchdata from '../../demo/search'
+import {useSelector} from 'react-redux'
+import {Flex, Box} from 'rebass'
+const data: any = searchdata.orderData
 const Search = (props: any) => {
-  const [value, setValue] = React.useState('')
-  const [sString, setSString] = React.useState('')
+  const [value, setValue]: any = React.useState([])
+  // const data = useSelector((state: any) => state.orderData)
+
+  React.useEffect(() => {}, [])
   const handleSearch = async (phrase: string) => {
     // console.log(phrase)
     // setValue()
-    setSString(phrase)
-    const res = await searchBoy(phrase, new cArray(data)).then(res => {
-      return res
-    })
-    setValue(res)
-    //call serach api
+    if (data !== {}) {
+      const res = await searchBoy(phrase, data).then(res => {
+        return res
+      })
+      setValue(res)
+      //call serach api}
+    }
   }
 
   return (
@@ -25,13 +29,39 @@ const Search = (props: any) => {
       <Content alignItems={'center'}>
         <SearchField onChange={handleSearch} />
       </Content>
-      {value ? (
-        <Content>
-          <Card transform={'translateY(-60px)'} content={<Kpi title={sString} value={value} displayGrowth={false} />} />
-        </Content>
-      ) : (
-        ''
-      )}
+      {value
+        ? value.map((e: any) => {
+            if (e.company) {
+              return (
+                <Content>
+                  <Paper
+                    title={`Auftrag ${value.indexOf(e) + 1} ${e.company.companyname}`}
+                    Body={
+                      <React.Fragment>
+                        {e.products.map((product: any) => {
+                          console.log(product)
+                          return (
+                            <React.Fragment>
+                              <div>{product.name}</div>
+                              <div>{product.quantity}</div>
+                              <div>{product.price}</div>
+                            </React.Fragment>
+                          )
+                        })}
+                      </React.Fragment>
+                    }
+                  />
+                </Content>
+              )
+            } else {
+              return (
+                <Content>
+                  <Card content={<Kpi title={e.name} value={e.value} displayGrowth={false} />} />
+                </Content>
+              )
+            }
+          })
+        : ''}
     </SiteBox>
   )
 }

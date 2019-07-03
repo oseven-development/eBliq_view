@@ -1,78 +1,85 @@
 /** @format */
 
 import {splitString} from './splitString'
+import {createData} from '../../../components/table/salesTable'
 
-const KPIs = ['Umsatz', 'Ausfall']
-const Years = ['2017', '2018', '2019', '2020']
-const Customers = ['Müller', 'Maier', 'Hofmann', 'Baumann']
-const Products = ['AZ12', 'AV54', 'DF19', 'WZ12']
-const Machines = ['ZS123', 'ZS234', 'XY124', 'XY432']
-const Operators = ['in', 'ab', 'nach', 'vor']
+const KPIs = ['Umsatz', 'Menge']
 
 export const searchBoy = async (phrase: string, arr: any) => {
   const splittedArray: string[] = await splitString(phrase)
-  let searchArray = arr
-  console.log(searchArray)
+  let searchArrayCustomer = arr.revenue
+  let searchOrder = arr.orderData
+  let searchArrayProduct = await createData(arr.products).then((res: any) => {
+    return res
+  })
+  let resultArray: any = []
   const findKPI = splittedArray.find((element: any) => {
     if (KPIs.includes(element)) {
       return element
     }
   })
-  const findOperator = splittedArray.find((element: any) => {
-    if (Operators.includes(element)) {
-      return element
-    }
-  })
-  const findYear = splittedArray.find((element: any) => {
-    if (Years.includes(element)) {
-      return element
-    }
-  })
-  const findCustomer = splittedArray.find((element: any) => {
-    if (Customers.includes(element)) {
-      return element
-    }
-  })
-  const findProduct = splittedArray.find((element: any) => {
-    if (Products.includes(element)) {
-      return element
-    }
-  })
-  const findMachine = splittedArray.find((element: any) => {
-    if (Machines.includes(element)) {
-      return element
-    }
-  })
   switch (findKPI) {
     case 'Umsatz':
-      if (findYear) {
-        const operator =
-          findOperator === 'in'
-            ? '==='
-            : findOperator === 'ab'
-            ? '>=='
-            : findOperator === 'nach'
-            ? '>'
-            : findOperator === 'vor'
-            ? '<'
-            : '==='
-        searchArray = searchArray.getFilteredArray('year', operator, findYear)
+      const customer = searchArrayCustomer.filter((element: any) => {
+        if (phrase.includes(element.companyname)) {
+          return true
+        }
+      })
+      const product = searchArrayProduct.filter((element: any) => {
+        if (phrase.includes(element.name)) {
+          return true
+        }
+      })
+      console.log(customer)
+      if (customer.length > 0) {
+        customer.map((cust: any) => {
+          resultArray.push({name: cust.companyname, value: cust.revenue})
+        })
       }
-      if (findCustomer) {
-        searchArray = searchArray.getFilteredArray('customer', '===', findCustomer)
+      if (product.length > 0) {
+        product.map((prod: any) => {
+          resultArray.push({name: prod.name, value: prod.revenue})
+        })
       }
-      if (findProduct) {
-        searchArray = searchArray.getFilteredArray('product', '===', findProduct)
+      break
+    case 'Menge':
+      const productMenge = searchArrayProduct.filter((element: any) => {
+        if (phrase.includes(element.name)) {
+          return true
+        }
+      })
+      if (productMenge.length > 0) {
+        productMenge.map((prod: any) => {
+          resultArray.push({name: prod.name, value: prod.quantity})
+        })
       }
-      return searchArray.getAttributeArray('value').sum()
-    case 'Ausfall':
-      if (findYear) {
-        searchArray = searchArray.getFilteredArray('year', '===', findYear)
-      }
-      if (findMachine) {
-        searchArray = searchArray.getFilteredArray('customer', '===', findMachine)
-      }
+      break
+
     default:
+      const customerOrder = searchOrder.filter((element: any) => {
+        if (phrase.includes(element.company.companyname)) {
+          return true
+        }
+      })
+      const productOrder = searchOrder.filter((element: any) => {
+        if (phrase.includes(element.products.name)) {
+          return true
+        }
+      })
+      console.log(customerOrder)
+      console.log(productOrder)
+      if (customerOrder.length > 0) {
+        customerOrder.map((cust: any) => {
+          resultArray.push(cust)
+        })
+      }
+      if (productOrder.length > 0) {
+        customerOrder.map((prod: any) => {
+          resultArray.push(prod)
+        })
+      }
+      console.log(resultArray)
       break
   }
+  return resultArray
 }

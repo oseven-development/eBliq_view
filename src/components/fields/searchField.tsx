@@ -45,13 +45,7 @@ const SearchField = (props: any) => {
   }
   return (
     <React.Fragment>
-      <Paper
-        elevation={1}
-        className={classes.root}
-        style={{
-          flexDirection: 'column',
-          transform: !more ? `translateY(${window.innerHeight / 3}px)` : `translateY(${window.innerHeight / 6}px)`,
-        }}>
+      <Paper elevation={1} className={classes.root} style={{marginTop: 20}}>
         <Paper className={classes.root} elevation={0}>
           <IconButton className={classes.iconButton} aria-label="Search">
             <SearchIcon />
