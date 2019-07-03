@@ -11,6 +11,8 @@ import {lightTheme as theme} from './assets/theme/theme'
 import {Navigation, Header, SnackBar} from './components'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import routes from './assets/routes'
+import {connect} from 'react-redux'
+import {setData} from './redux/action'
 interface IState {
   data: any
   streamData: any
@@ -51,31 +53,106 @@ const source = new EventSource(url)
 //   })
 // }
 
-const App = () => {
-  const [title, setTitle] = React.useState('Suche')
-  const [snack, setSnack] = React.useState({open: false, variant: 'info', message: 'das ist ein Test'})
+class App extends React.Component<any, any> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      title: 'Suche',
+      snack: {open: false, variant: 'info', message: 'das ist ein Test'},
+      data: [],
+    }
+    source.addEventListener('machineStream', (e: any) => {
+      this.props.setDataMachine({
+        payload: e.data,
+        type: 'ADDM',
+      })
+    })
+    source.addEventListener('AI', (e: any) => {
+      this.props.setDataAI({
+        payload: e.data,
+        type: 'ADDA',
+      })
+    })
+    source.addEventListener('order', (e: any) => {
+      this.props.setDataOrder({
+        payload: e.data,
+        type: 'ADDO',
+      })
+    })
+    // notification('Simulation gestartet')
+  }
 
-  return (
-    <MuiThemeProvider theme={theme}>
-      <Router>
-        <Header title={title} notifications={1} />
-        <Navigation setTitle={setTitle} width={window.innerWidth} />
-        <React.Fragment>
-          {routes.map((e: any) => {
-            const Component = e.component
-            return (
-              <Route
-                path={e.path}
-                component={(props: any) => <Component {...props} setSnack={setSnack} snack={snack} source={source} />}
-                key={e.path}
-              />
-            )
-          })}
-        </React.Fragment>
-      </Router>
-      <SnackBar open={snack.open} snack={snack} setSnack={setSnack} variant={snack.variant} message={snack.message} />
-    </MuiThemeProvider>
-  )
+  setTitle = (title: String) => {
+    this.setState({title})
+  }
+  setSnack = (snack: String) => {
+    this.setState({snack})
+  }
+
+  render() {
+    const {title, snack} = this.state
+    return (
+      <MuiThemeProvider theme={theme}>
+        <Router>
+          <Header title={title} notifications={1} />
+          <Navigation setTitle={this.setTitle} width={window.innerWidth} />
+          <React.Fragment>
+            {routes.map((e: any) => {
+              const Component = e.component
+              return (
+                <Route
+                  path={e.path}
+                  component={(props: any) => (
+                    <Component {...props} setSnack={this.setSnack} snack={snack} source={source} />
+                  )}
+                  key={e.path}
+                />
+              )
+            })}
+          </React.Fragment>
+        </Router>
+        <SnackBar
+          open={snack.open}
+          snack={snack}
+          setSnack={this.setSnack}
+          variant={snack.variant}
+          message={snack.message}
+        />
+      </MuiThemeProvider>
+    )
+  }
 }
 
-export default App
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    setDataMachine: (transfer: any) => {
+      dispatch(
+        setData({
+          payload: transfer.payload || {},
+          type: transfer.type,
+        }),
+      )
+    },
+    setDataAI: (transfer: any) => {
+      dispatch(
+        setData({
+          payload: transfer.payload || {},
+          type: transfer.type,
+        }),
+      )
+    },
+    setDataOrder: (transfer: any) => {
+      dispatch(
+        setData({
+          payload: transfer.payload || {},
+          type: transfer.type,
+        }),
+      )
+    },
+  }
+}
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(App)

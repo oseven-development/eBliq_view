@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react'
 import {Card, Content, Kpi, Chart, MachineVis, SiteNavigation, SiteBox, Table} from '../../components'
+import {useSelector} from 'react-redux'
 
 const headRows = [
   {id: 'type', numeric: false, disablePadding: true, label: 'Typ'},
@@ -36,14 +37,17 @@ const rows = [
   {type: 'info', name: 'Machine 1 kaputt', date: '12.12.2019', time: '12:25'},
 ]
 
-export default class Benachrichtigung extends Component<any, any> {
-  render() {
-    return (
-      <SiteBox>
-        <Content>
-          <Table title={'Benachrichtigungen'} rows={rows} headRows={headRows} checkbox={true} />
-        </Content>
-      </SiteBox>
-    )
-  }
+// export default class Benachrichtigung extends Component<any, any> {
+//   render() {
+export default () => {
+  const data = useSelector((state: any) => state.orderData.products)
+  console.log(data)
+  return (
+    <SiteBox>
+      <Content>
+        <Table title={'Benachrichtigungen'} rows={rows} headRows={headRows} checkbox={true} />
+      </Content>
+    </SiteBox>
+  )
 }
+// }
