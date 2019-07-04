@@ -62,23 +62,21 @@ export const searchBoy = async (phrase: string, arr: any) => {
         }
       })
       const productOrder = searchOrder.filter((element: any) => {
-        if (phrase.includes(element.products.name)) {
+        const x = element.products.find((product: any) => phrase.includes(product.name))
+        if (x) {
           return true
         }
       })
-      console.log(customerOrder)
-      console.log(productOrder)
       if (customerOrder.length > 0) {
         customerOrder.map((cust: any) => {
           resultArray.push(cust)
         })
       }
       if (productOrder.length > 0) {
-        customerOrder.map((prod: any) => {
+        productOrder.map((prod: any) => {
           resultArray.push(prod)
         })
       }
-      console.log(resultArray)
       break
   }
   return resultArray
